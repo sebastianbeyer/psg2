@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+import stat
 import sys
 import argparse
 import pprint
@@ -95,11 +96,26 @@ def add_filenames_to_tree(name, tree):
     tree['extra_file'] = extraFile
 
 
-from time import asctime
-import jinja2
+def append_tree_options_to_file(tree, out_file):
+    """
+    """
+    noWriteKeys = ["name", "n_procs"]
+    with open(out_file, 'a') as f:
+        for key, value in tree.items():
+            if key not in noWriteKeys:
+                line = "-{} {} \\".format(key, value)
+                # print(line)
+                f.write('  ' + line + '\n')
 
 
 def write_to_file(tree, out_file, templateName):
+    from time import asctime
+    import jinja2
+
+    from pathlib import Path
+    directory = os.path.split(out_file)[0]
+    Path(directory).mkdir(parents=True, exist_ok=True)
+
     loader = jinja2.FileSystemLoader(searchpath=paths.templates_path)
     env = jinja2.Environment(loader=loader,
                              trim_blocks=True,
@@ -113,6 +129,24 @@ def write_to_file(tree, out_file, templateName):
     }
     template = env.get_template(templateName)
     template.stream(basedata).dump(out_file)
+    print('Writing runfile to {}'.format(out_file))
+    append_tree_options_to_file(tree, out_file)
+
+
+def runscriptFile(tree):
+
+    runscript = os.path.join(
+        paths.exp_envs_path,
+        tree['name'],
+        'run' + tree['name'] + '.sh',
+    )
+    return runscript
+
+
+def make_file_executable(out_file):
+    """Need to read stats first to just add"""
+    st = os.stat(out_file)
+    os.chmod(out_file, st.st_mode | stat.S_IEXEC)
 
 
 def generate_command(args):
@@ -120,16 +154,19 @@ def generate_command(args):
     """
     # flatten
     name = args.exp
-    flat = flatten_dict(tree['experiments'][name])
-    flat['name'] = name
+    treeFlat = flatten_dict(tree['experiments'][name])
+    treeFlat['name'] = name
 
     default = tree['experiments']['default']
-    default.update(flat)
-    flat = default
-    add_filenames_to_tree(name, flat)
+    default.update(treeFlat)
+    treeFlat = default
+    add_filenames_to_tree(name, treeFlat)
+    runscript = runscriptFile(treeFlat)
 
-    pprint.pprint(flat)
-    write_to_file(flat, './test.sh', 'PISM_bash.sh')
+    # pprint.pprint(treeFlat)
+
+    write_to_file(treeFlat, runscript, 'PISM_bash.sh')
+    make_file_executable(runscript)
 
     # expEnv = expenv.ExperimentEnvironment(exp)
     # exp.write_to_file(expEnv.runfile, 'runpism1.2.sh')
