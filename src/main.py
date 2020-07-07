@@ -19,22 +19,26 @@ import paths
 psg_file = os.path.realpath(os.path.expanduser(__file__))
 # psg_prefix = os.path.dirname(os.path.dirname(psg_file))
 
-psg_exp_file = os.path.join(paths.setups_path, "experiments.yaml")
 sys.path.insert(0, paths.psg_src_path)
 
-# load all the stuff
-config_processor = ConfigProcessor()
-tree = config_processor.process(path=paths.setups_path,
-                                filters=(),
-                                exclude_keys=(),
-                                output_format="yaml",
-                                print_data=False)
 
-stream = open(psg_exp_file, 'r')
-tree_nointerp = load(stream, Loader=Loader)
+def load_yaml(setups_path):
+    config_processor = ConfigProcessor()
+    tree = config_processor.process(path=setups_path,
+                                    filters=(),
+                                    exclude_keys=(),
+                                    output_format="yaml",
+                                    print_data=False)
+
+    # use the simple yaml to read without interpolation
+    psg_exp_file = os.path.join(setups_path, "experiments.yaml")
+    stream = open(psg_exp_file, 'r')
+    tree_nointerp = load(stream, Loader=Loader)
+    return tree, tree_nointerp
 
 
 def listCmd(args):
+    tree, tree_nointerp = load_yaml(paths.setups_path)
     if args.type == 'exps':
         for key, value in tree_nointerp['experiments'].items():
             print(key)
@@ -48,7 +52,7 @@ def rsync_command(args):
         path = '/home/sbeyer'
     else:
         path = '/work/sbeyer'
-    source = remote + ":" + path + "/psg/experiments/" + experiment + "/*.nc"
+    source = remote + ":" + path + "/psg2/experiments/" + experiment + "/*.nc"
     destination = os.path.join(paths.exp_envs_path, experiment)
     subprocess.call(["rsync", "--progress", "-avzh", source, destination])
     # rsync --progress -avzh k19:/work/sbeyer/psg/experiments/LGM-NHEM-40km-constant-siaEtuning/ts_LGM-NHEM-40km-constant-siaEtuning_sia_e_3.nc .
@@ -147,17 +151,22 @@ def make_file_executable(out_file):
     os.chmod(out_file, st.st_mode | stat.S_IEXEC)
 
 
-def generate_command(args):
-    """This runs when the generate command is given on the command line
-    """
-    # flatten
-    name = args.exp
-    treeFlat = flatten_dict(tree['experiments'][name])
-    treeFlat['name'] = name
-
+def merge_with_default(tree, treeFlat):
     default = tree['experiments']['default']
     default.update(treeFlat)
     treeFlat = default
+    return treeFlat
+
+
+def generate_command(args):
+    """This runs when the generate command is given on the command line
+    """
+    name = args.exp
+    tree, _ = load_yaml(paths.setups_path)
+    treeFlat = flatten_dict(tree['experiments'][name])
+    treeFlat['name'] = name
+
+    treeFlat = merge_with_default(tree, treeFlat)
     add_filenames_to_tree(name, treeFlat)
     runscript = runscript_file_name(treeFlat)
 
@@ -165,9 +174,6 @@ def generate_command(args):
 
     write_to_file(treeFlat, runscript, 'PISM_bash.sh')
     make_file_executable(runscript)
-
-    # expEnv = expenv.ExperimentEnvironment(exp)
-    # exp.write_to_file(expEnv.runfile, 'runpism1.2.sh')
 
 
 parser = argparse.ArgumentParser(description='Generate pism runs')
