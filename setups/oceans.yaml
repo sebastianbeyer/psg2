@@ -1,0 +1,37 @@
+oceans:
+  default:
+  
+  pik-niu:
+    ocean: pik
+    meltfactor_pik: 0.01  
+    
+  sealevel_change:
+    sea_level: constant,delta_sl
+    ocean_delta_sl_file: /dataset/sealevel.nc
+    
+  calving-std:
+    calving: eigen_calving,thickness_calving
+    thickness_calving_threshold: 200
+    
+  pik-default:
+    calving: eigen_calving,thickness_calving
+    thickness_calving_threshold: 200
+    ocean: pik
+    meltfactor_pik: 0.01
+    
+  hot:
+    ocean: constant
+    shelf_base_melt_rate: 10000
+    
+  constantmelt_50:
+    calving: eigen_calving,thickness_calving
+    thickness_calving_threshold: 200
+    ocean: constant
+    shelf_base_melt_rate: 50
+    
+  thermodynamics:
+    calving: eigen_calving,thickness_calving
+    thickness_calving_threshold: 200
+    ocean: th
+    ocean_th_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_CAM5_PI_NHEM_40km.nc
+    

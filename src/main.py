@@ -10,24 +10,21 @@ try:
     from yaml import CLoader as Loader, CDumper as Dumper
 except ImportError:
     from yaml import Loader, Dumper
+from himl import ConfigProcessor
 
 import version
 import paths
-from himl import ConfigProcessor
 
 # get location of this stuff and add the paths, so no install is necessary
 psg_file = os.path.realpath(os.path.expanduser(__file__))
-psg_prefix = os.path.dirname(os.path.dirname(psg_file))
+# psg_prefix = os.path.dirname(os.path.dirname(psg_file))
 
-# print(psg_prefix)
-psg_src_path = os.path.join(psg_prefix, "src")
-psg_exp_path = os.path.join(psg_prefix, "experiments")
-psg_exp_file = os.path.join(psg_exp_path, "experiments.yaml")
-sys.path.insert(0, psg_src_path)
+psg_exp_file = os.path.join(paths.setups_path, "experiments.yaml")
+sys.path.insert(0, paths.psg_src_path)
 
 # load all the stuff
 config_processor = ConfigProcessor()
-tree = config_processor.process(path=psg_exp_path,
+tree = config_processor.process(path=paths.setups_path,
                                 filters=(),
                                 exclude_keys=(),
                                 output_format="yaml",
@@ -133,7 +130,8 @@ def write_to_file(tree, out_file, templateName):
     append_tree_options_to_file(tree, out_file)
 
 
-def runscriptFile(tree):
+def runscript_file_name(tree):
+    """Returns the file name of the generated runscript."""
 
     runscript = os.path.join(
         paths.exp_envs_path,
@@ -161,7 +159,7 @@ def generate_command(args):
     default.update(treeFlat)
     treeFlat = default
     add_filenames_to_tree(name, treeFlat)
-    runscript = runscriptFile(treeFlat)
+    runscript = runscript_file_name(treeFlat)
 
     # pprint.pprint(treeFlat)
 

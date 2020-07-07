@@ -1,0 +1,138 @@
+climates:
+  pdd-simple:
+    atmosphere: given
+    atmosphere_given_period: 1
+    temp_lapse_rate: 5
+    surface: pdd
+    surface.pdd.air_temp_all_precip_as_rain: 275.15
+    surface.pdd.air_temp_all_precip_as_snow: 273.15
+    surface.pdd.factor_ice: 0.0088
+    surface.pdd.factor_snow: 0.0033
+    surface.pdd.refreeze: 0.6
+    
+    
+  pdd-std-21ka-CAM5:
+    atmosphere: given
+    atmosphere_given_period: 1
+    temp_lapse_rate: 5
+    surface: pdd
+    surface.pdd.air_temp_all_precip_as_rain: 275.15
+    surface.pdd.air_temp_all_precip_as_snow: 273.15
+    surface.pdd.factor_ice: 0.0088
+    surface.pdd.factor_snow: 0.0033
+    surface.pdd.refreeze: 0.6
+    
+  pdd-std-21ka-CAM4_CN:
+    atmosphere: given
+    atmosphere_given_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_CAM4_CN_21ka_NHEM_40km.nc
+    atmosphere_given_period: 1
+    temp_lapse_rate: 5
+    atmosphere_lapse_rate_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_CAM4_CN_21ka_NHEM_40km_refHeightOnly.nc
+    surface: pdd
+    surface.pdd.air_temp_all_precip_as_rain: 275.15
+    surface.pdd.air_temp_all_precip_as_snow: 273.15
+    surface.pdd.factor_ice: 0.0088
+    surface.pdd.factor_snow: 0.0033
+    surface.pdd.refreeze: 0.6
+    
+  pdd-std-21ka-CAM5_CN:
+    atmosphere: given
+    atmosphere_given_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_CAM5_CN_21ka_NHEM_40km.nc
+    atmosphere_given_period: 1
+    temp_lapse_rate: 5
+    atmosphere_lapse_rate_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_CAM5_CN_21ka_NHEM_40km_refHeightOnly.nc
+    surface: pdd
+    surface.pdd.air_temp_all_precip_as_rain: 275.15
+    surface.pdd.air_temp_all_precip_as_snow: 273.15
+    surface.pdd.factor_ice: 0.0088
+    surface.pdd.factor_snow: 0.0033
+    surface.pdd.refreeze: 0.6
+    
+  pdd-std-PI-CAM5:
+    atmosphere: given
+    atmosphere_given_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_CAM5_PI_NHEM_40km.nc
+    atmosphere_given_period: 1
+    temp_lapse_rate: 5
+    atmosphere_lapse_rate_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_CAM5_PI_NHEM_40km_refHeightOnly.nc
+    surface: pdd
+    surface.pdd.air_temp_all_precip_as_rain: 275.15
+    surface.pdd.air_temp_all_precip_as_snow: 273.15
+    surface.pdd.factor_ice: 0.0088
+    surface.pdd.factor_snow: 0.0033
+    surface.pdd.refreeze: 0.6
+    
+
+
+  pdd-std-00ka:
+    atmosphere: given
+    atmosphere_given_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_00ka_NHEM_40km.nc
+    atmosphere_given_period: 1
+    temp_lapse_rate: 5
+    atmosphere_lapse_rate_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_00ka_NHEM_40km_refHeightOnly.nc
+    surface: pdd
+    surface.pdd.air_temp_all_precip_as_rain: 275.15
+    surface.pdd.air_temp_all_precip_as_snow: 273.15
+    surface.pdd.factor_ice: 0.0088
+    surface.pdd.factor_snow: 0.0033
+    surface.pdd.refreeze: 0.6
+    
+  pdd-std-00ka-era5-20km:
+    atmosphere: given
+    atmosphere_given_file: /mnt/wrk4/sbeyer/datasets/era5/ERA5_NHEM_20km.nc
+    atmosphere_given_period: 1
+    temp_lapse_rate: 5
+    surface: pdd
+    surface.pdd.air_temp_all_precip_as_rain: 275.15
+    surface.pdd.air_temp_all_precip_as_snow: 273.15
+    surface.pdd.factor_ice: 0.0088
+    surface.pdd.factor_snow: 0.0033
+    surface.pdd.refreeze: 0.6
+    
+  pdd-std-00ka-era5-40km:
+    atmosphere: given
+    atmosphere_given_file: /mnt/wrk4/sbeyer/datasets/era5/ERA5_NHEM_40km.nc
+    atmosphere_given_period: 1
+    temp_lapse_rate: 5
+    surface: pdd
+    surface.pdd.air_temp_all_precip_as_rain: 275.15
+    surface.pdd.air_temp_all_precip_as_snow: 273.15
+    surface.pdd.factor_ice: 0.0088
+    surface.pdd.factor_snow: 0.0033
+    surface.pdd.refreeze: 0.6
+
+  pdd-std-with-sd-21ka:
+    atmosphere: given
+    atmosphere_given_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_21ka_NHEM_40km.nc
+    atmosphere_given_period: 1
+    temp_lapse_rate: 5
+    atmosphere_lapse_rate_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_21ka_NHEM_40km_refHeightOnly.nc
+    surface: pdd
+    surface.pdd.air_temp_all_precip_as_rain: 275.15
+    surface.pdd.air_temp_all_precip_as_snow: 273.15
+    surface.pdd.factor_ice: 0.0088
+    surface.pdd.factor_snow: 0.0033
+    surface.pdd.refreeze: 0.6
+    pdd_sd_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_21ka_NHEM_40km.nc
+    pdd_sd_period: 1
+
+  pdd-ensemble_refreeze-00ka:
+    atmosphere: given
+    atmosphere_given_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_00ka_NHEM_40km.nc
+    atmosphere_given_period: 1
+    temp_lapse_rate: 5
+    atmosphere_lapse_rate_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_00ka_NHEM_40km_refHeightOnly.nc
+    surface: pdd
+    surface.pdd.refreeze: [0.1, 0.3, 0.5, 0.6, 0.7, 0.9]
+
+  pdd-glacial-index:
+    temp_lapse_rate: 5
+    surface: pdd
+    surface.pdd.air_temp_all_precip_as_rain: 275.15
+    surface.pdd.air_temp_all_precip_as_snow: 273.15
+    surface.pdd.factor_ice: 0.0088
+    surface.pdd.factor_snow: 0.0033
+    surface.pdd.refreeze: 0.6
+    atmosphere: index
+    atmosphere.index.precip_decay_rate: 0.75
+    atmosphere_index_file: /mnt/wrk4/sbeyer/datasets/glacialIndex/CESM_NHEM_glacialIndex_40km.nc
+    atmosphere_indexindex_file: /mnt/wrk4/sbeyer/datasets/glacialIndex/CESM_NHEM_glacialIndex_40km_index.nc
