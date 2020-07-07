@@ -11,6 +11,9 @@ try:
 except ImportError:
     from yaml import Loader, Dumper
 from himl import ConfigProcessor
+from time import asctime
+import jinja2
+from pathlib import Path
 
 import version
 import paths
@@ -110,10 +113,6 @@ def append_tree_options_to_file(tree, out_file):
 
 
 def write_to_file(tree, out_file, templateName):
-    from time import asctime
-    import jinja2
-
-    from pathlib import Path
     directory = os.path.split(out_file)[0]
     Path(directory).mkdir(parents=True, exist_ok=True)
 
@@ -151,28 +150,30 @@ def make_file_executable(out_file):
     os.chmod(out_file, st.st_mode | stat.S_IEXEC)
 
 
-def merge_with_default(tree, treeFlat):
-    default = tree['experiments']['default']
+def merge_with_default(setups, treeFlat):
+    default = setups['experiments']['default']
     default.update(treeFlat)
     treeFlat = default
     return treeFlat
+
+
+def add_name_to_setup(setup, name):
+    setup['name'] = name
+    return setup
 
 
 def generate_command(args):
     """This runs when the generate command is given on the command line
     """
     name = args.exp
-    tree, _ = load_yaml(paths.setups_path)
-    treeFlat = flatten_dict(tree['experiments'][name])
-    treeFlat['name'] = name
+    all_setups, _ = load_yaml(paths.setups_path)
+    single_setup = flatten_dict(all_setups['experiments'][name])
+    single_setup = add_name_to_setup(single_setup, name)
+    single_setup = merge_with_default(all_setups, single_setup)
+    add_filenames_to_tree(name, single_setup)
 
-    treeFlat = merge_with_default(tree, treeFlat)
-    add_filenames_to_tree(name, treeFlat)
-    runscript = runscript_file_name(treeFlat)
-
-    # pprint.pprint(treeFlat)
-
-    write_to_file(treeFlat, runscript, 'PISM_bash.sh')
+    runscript = runscript_file_name(single_setup)
+    write_to_file(single_setup, runscript, 'PISM_bash.sh')
     make_file_executable(runscript)
 
 
