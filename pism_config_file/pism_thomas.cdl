@@ -1,0 +1,42 @@
+netcdf pism_overrides {
+    variables:
+    byte pism_overrides;
+
+    pism_overrides:run_info.institution = "Marum";
+    pism_overrides:run_info.institution_doc = "Institution name. This string is written to output files as the 'institution' global attribute.";
+
+    pism_overrides:output.backup_interval = 5.0;
+    pism_overrides:output.backup_interval_doc = "hours; wall-clock time between automatic backups";
+
+    pism_overrides:geometry.ice_free_thickness_standard = 10.0;
+    pism_overrides:geometry.ice_free_thickness_standard_doc = "If ice is thinner than this standard then the mask is set to MASK_ICE_FREE_BEDROCK or MASK_ICE_FREE_OCEAN.";
+
+    pism_overrides:stress_balance.sia.max_diffusivity = 100000.0;
+    pism_overrides:stress_balance.sia.max_diffusivity_doc = "Maximum allowed diffusivity of the SIA flow. PISM stops with an error message if the SIA diffusivity exceeds this limit.";
+    pism_overrides:stress_balance.sia.max_diffusivity_units = "m2 s-1";
+
+    pism_overrides:grid.recompute_longitude_and_latitude = "yes" ;
+    pism_overrides:grid.periodicity = "none" ;
+    pism_overrides:grid.registration = "corner" ;
+    pism_overrides:time.calendar = "365_day" ;
+    pism_overrides:basal_yield_stress.slippery_grounding_lines = "yes" ;
+    pism_overrides:energy.basal_melt.use_grounded_cell_fraction = "false" ;
+    pism_overrides:surface.pdd.std_dev = 4. ;
+    // pism_overrides:surface.pdd.balance_year_start_day = 91 ;  // Antarktis
+    pism_overrides:calving.thickness_calving.threshold = 150. ;
+    pism_overrides:calving.eigen_calving.K = 1.e+17 ;
+    pism_overrides:energy.enthalpy.temperate_ice_thermal_conductivity_ratio = 0.01 ;
+    pism_overrides:basal_yield_stress.mohr_coulomb.topg_to_phi.enabled = "yes" ;
+    pism_overrides:basal_yield_stress.mohr_coulomb.topg_to_phi.phi_min = 10. ;
+    pism_overrides:basal_yield_stress.mohr_coulomb.topg_to_phi.phi_max = 30. ;
+    pism_overrides:basal_yield_stress.mohr_coulomb.topg_to_phi.topg_min = -700. ;
+    pism_overrides:basal_yield_stress.mohr_coulomb.topg_to_phi.topg_max = 200. ;
+    pism_overrides:basal_resistance.pseudo_plastic.enabled = "yes" ;
+    pism_overrides:basal_resistance.pseudo_plastic.q = 0.65 ;
+    pism_overrides:basal_resistance.pseudo_plastic.u_threshold = 100. ;
+    pism_overrides:stress_balance.ssa.enhancement_factor = 1.00 ;
+    pism_overrides:stress_balance.sia.enhancement_factor = 2.00 ;
+
+
+
+}
