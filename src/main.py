@@ -94,16 +94,22 @@ def add_filenames_to_tree(name, tree):
         name,
         'ex_' + name + '.nc',
     )
+    runscriptFile = os.path.join(
+        paths.exp_envs_path,
+        tree['name'],
+        'run' + tree['name'] + '.sh',
+    )
 
     tree['o'] = outFile
     tree['ts_file'] = tsFile
     tree['extra_file'] = extraFile
+    tree['runscript_file'] = runscriptFile
 
 
 def append_tree_options_to_file(tree, out_file):
     """
     """
-    noWriteKeys = ["name", "n_procs"]
+    noWriteKeys = ["name", "n_procs", "runscript_file"]
     with open(out_file, 'a') as f:
         for key, value in tree.items():
             if key not in noWriteKeys:
@@ -112,7 +118,8 @@ def append_tree_options_to_file(tree, out_file):
                 f.write('  ' + line + '\n')
 
 
-def write_to_file(tree, out_file, templateName):
+def write_to_file(tree, templateName):
+    out_file = tree['runscript_file']
     directory = os.path.split(out_file)[0]
     Path(directory).mkdir(parents=True, exist_ok=True)
 
@@ -133,33 +140,71 @@ def write_to_file(tree, out_file, templateName):
     append_tree_options_to_file(tree, out_file)
 
 
-def runscript_file_name(tree):
-    """Returns the file name of the generated runscript."""
-
-    runscript = os.path.join(
-        paths.exp_envs_path,
-        tree['name'],
-        'run' + tree['name'] + '.sh',
-    )
-    return runscript
-
-
-def make_file_executable(out_file):
+def make_file_executable(tree):
     """Need to read stats first to just add"""
+    out_file = tree['runscript_file']
     st = os.stat(out_file)
     os.chmod(out_file, st.st_mode | stat.S_IEXEC)
 
 
-def merge_with_default(setups, treeFlat):
+def merge_with_default(setups, single_setup):
     default = setups['experiments']['default']
-    default.update(treeFlat)
-    treeFlat = default
-    return treeFlat
+    default.update(single_setup)
+    single_setup = default
+    return single_setup
 
 
 def add_name_to_setup(setup, name):
     setup['name'] = name
     return setup
+
+
+def handle_parameter_study(setup):
+    """This returns a list of setups, only one when there is no study.
+    """
+    setup_list = [setup]
+    for key, value in setup.items():
+        if isinstance(value, list):
+            setup_list = []  # empty again
+            print("Found parameter study: {}: {}".format(key, value))
+            for parameter in value:
+                new_setup = setup.copy()
+                # print(parameter)
+                new_setup[key] = parameter
+
+                # handle the new file names
+                new_setup['o'] = os.path.join(
+                    paths.exp_envs_path,
+                    setup['name'],
+                    setup['name'] + "_param-" + key + "-" + str(parameter) +
+                    '_.nc',
+                )
+                new_setup['ts_file'] = os.path.join(
+                    paths.exp_envs_path,
+                    setup['name'],
+                    'ts_' + setup['name'] + "_param-" + key + "-" +
+                    str(parameter) + '_.nc',
+                )
+                new_setup['extra_file'] = os.path.join(
+                    paths.exp_envs_path,
+                    setup['name'],
+                    'ex_' + setup['name'] + "_param-" + key + "-" +
+                    str(parameter) + '_.nc',
+                )
+                new_setup['runscript_file'] = os.path.join(
+                    paths.exp_envs_path,
+                    setup['name'],
+                    'run_' + setup['name'] + "_param-" + key + "-" +
+                    str(parameter) + '_.sh',
+                )
+
+                setup_list.append(new_setup)
+    # pprint.pprint(setup_list)
+    return setup_list
+
+
+def is_study(setup_list):
+    return len(setup_list) > 1
 
 
 def generate_command(args):
@@ -169,12 +214,15 @@ def generate_command(args):
     all_setups, _ = load_yaml(paths.setups_path)
     single_setup = flatten_dict(all_setups['experiments'][name])
     single_setup = add_name_to_setup(single_setup, name)
+
     single_setup = merge_with_default(all_setups, single_setup)
     add_filenames_to_tree(name, single_setup)
 
-    runscript = runscript_file_name(single_setup)
-    write_to_file(single_setup, runscript, 'PISM_bash.sh')
-    make_file_executable(runscript)
+    # check parameter studies
+    setup_list = handle_parameter_study(single_setup)
+    for setup in setup_list:
+        write_to_file(setup, 'PISM_bash.sh')
+        make_file_executable(setup)
 
 
 parser = argparse.ArgumentParser(description='Generate pism runs')
