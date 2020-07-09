@@ -39,4 +39,19 @@ experiments:
     icedynamic: "{{icedynamics.siae3-q04}}"
     time: "{{times.spinup-relax-1year}}"
     
+  PD-GRN-20km-ERA5-spinup-100ka-nomass-sia:
+    i: /mnt/wrk4/sbeyer/datasets/era5/ERA5_GRN_20km.nc
+    regrid_file: /work/sbeyer/psg2/experiments/PD-GRN-20km-ERA5-spinup-relax/PD-GRN-20km-ERA5-spinup-relax.nc
+    regrid_vars: litho_temp,thk,enthalpy,tillwat,bmelt
+    grid: "{{grids.GRN-20km}}"
+    ocean: "{{oceans.constantmelt_50}}"
+    front_retreat_file: /mnt/wrk4/sbeyer/datasets/oceankillmask/NHEM_ocean_kill_20km.nc
+    climate: "{{climates.pdd-simple}}"
+    atmosphere_given_file: /mnt/wrk4/sbeyer/datasets/era5/ERA5_GRN_20km.nc
+    #atmosphere_lapse_rate_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_21ka_NHEM_40km_refHeightOnly.nc
+    icedynamic: "{{icedynamics.siae3-q04}}"
+    time: "{{times.spinup-100ka}}"
+    no_mass: yes
+    stress_balance: sia
+    
     

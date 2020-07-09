@@ -42,6 +42,12 @@ times:
     ye: 1
     ts_times: '0:daily:1'
     extra_times: '0:monthly:1'
+    
+  spinup-100ka:
+    ys: 1
+    ye: 100000
+    ts_times: 'yearly'
+    extra_times: '1000'
 
   test-threeyear:
     ys: 0
