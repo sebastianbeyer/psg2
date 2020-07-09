@@ -1,10 +1,4 @@
 icedynamics:
-  default:
-    stress_balance: ssa+sia
-    tauc_slippery_grounding_lines: yes
-    topg_to_phi: 5,40,-700,700
-    pseudo_plastic: yes
-    till_effective_fraction_overburden: 0.02
 
   niu2019:
     sia_e: 5

@@ -36,6 +36,12 @@ times:
     extra_times: '0:monthly:1'
     test_climate_models: yes
     no_mass: yes
+    
+  spinup-relax-1year:
+    ys: 0
+    ye: 1
+    ts_times: '0:daily:1'
+    extra_times: '0:monthly:1'
 
   test-threeyear:
     ys: 0

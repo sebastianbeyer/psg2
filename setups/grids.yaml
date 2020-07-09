@@ -1,15 +1,11 @@
 grids:
-  default:
-    z_spacing: equal
-    periodicity: none
-    grid.recompute_longitude_and_latitude: false
     
   NHEM-40km:
     Mx: 312
     My: 312
     Mz: 101
     Mbz: 21
-    Lz: 8000
+    Lz: 5000
     Lbz: 2000
        
   NHEM-20km-100vert:
@@ -17,21 +13,21 @@ grids:
     My: 625
     Mz: 101
     Mbz: 11
-    Lz: 8000
+    Lz: 5000
     Lbz: 2000
     
   GRN-40km:
     Mx: 44
     My: 76
     Mz: 101
-    Mbz: 11
-    Lz: 8000
+    Mbz: 21
+    Lz: 4000
     Lbz: 2000
     
   GRN-20km:
     Mx: 88
     My: 152
     Mz: 101
-    Mbz: 11
-    Lz: 8000
+    Mbz: 21
+    Lz: 4000
     Lbz: 2000
