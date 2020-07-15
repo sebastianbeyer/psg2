@@ -51,7 +51,7 @@ experiments:
     surface_delta_T_file: /mnt/wrk4/sbeyer/datasets/Greenland/pism_dT.nc
     #atmosphere_lapse_rate_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_21ka_NHEM_40km_refHeightOnly.nc
     icedynamic: "{{icedynamics.siae3-q04}}"
-    time: "{{times.spinup-100ka}}"
+    time: "{{times.spinup-125ka}}"
     no_mass: yes
     stress_balance: sia
     
