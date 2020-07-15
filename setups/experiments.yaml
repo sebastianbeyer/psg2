@@ -66,6 +66,6 @@ experiments:
     atmosphere_given_file: /mnt/wrk4/sbeyer/datasets/era5/ERA5_GRN_20km.nc
     #atmosphere_lapse_rate_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_21ka_NHEM_40km_refHeightOnly.nc
     icedynamic: "{{icedynamics.siae3-q04}}"
-    time: "{{times.50k-out100-more-from100000}}"
+    time: "{{times.50k-out100-more-from0}}"
     
     
