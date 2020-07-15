@@ -48,7 +48,7 @@ experiments:
     front_retreat_file: /mnt/wrk4/sbeyer/datasets/oceankillmask/NHEM_ocean_kill_20km.nc
     climate: "{{climates.pdd-simple-deltaT}}"
     atmosphere_given_file: /mnt/wrk4/sbeyer/datasets/era5/ERA5_GRN_20km.nc
-    surface_delta_T_file: /mnt/wrk4/sbeyer/datasets/Greenland/pism_dT.nc
+    atmosphere_delta_T_file: /mnt/wrk4/sbeyer/datasets/Greenland/pism_dT.nc
     #atmosphere_lapse_rate_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_21ka_NHEM_40km_refHeightOnly.nc
     icedynamic: "{{icedynamics.siae3-q04}}"
     time: "{{times.spinup-125ka}}"
