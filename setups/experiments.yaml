@@ -6,6 +6,16 @@ experiments:
     timestep_hit_multiplies: 1
     config_override: ./pism_config.nc
 
+  SeaRise_20km-SMBgiven:
+    i: /mnt/wrk4/sbeyer/datasets/Greenland/Present_Day_Greenland/Searise_Greenland_4PISM.nc
+    grid: "{{grids.GRN-20km}}"
+    ocean: "{{oceans.pik-default}}"
+    front_retreat_file: /mnt/wrk4/sbeyer/datasets/oceankillmask/GRN_ocean_kill_20km.nc
+    climate: "{{climates.smb-given}}"
+    surface_given_file: /mnt/wrk4/sbeyer/datasets/Greenland/Present_Day_Greenland/Searise_Greenland_4PISM.nc
+    icedynamic: "{{icedynamics.siae3-q04}}"
+    time: "{{times.50k-out100-more}}"
+
   LGM-NHEM-40km-constant-CESM-CAM5:
     i: /mnt/wrk4/sbeyer/datasets/cesm/CESM_CAM5_21ka_NHEM_40km.nc
     grid: "{{grids.NHEM-40km}}"
@@ -16,7 +26,7 @@ experiments:
     atmosphere_lapse_rate_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_21ka_NHEM_40km_refHeightOnly.nc
     icedynamic: "{{icedynamics.siae3-q04}}"
     time: "{{times.50k-out100-more}}"
-    
+
   LGM-param-study-test:
     i: /mnt/wrk4/sbeyer/datasets/cesm/CESM_CAM5_21ka_NHEM_40km.nc
     grid: "{{grids.NHEM-40km}}"
@@ -27,7 +37,7 @@ experiments:
     atmosphere_lapse_rate_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_21ka_NHEM_40km_refHeightOnly.nc
     icedynamic: "{{icedynamics.param-study-siaE}}"
     time: "{{times.50k-out100-more}}"
-    
+
   PD-GRN-20km-ERA5-spinup-relax:
     i: /mnt/wrk4/sbeyer/datasets/era5/ERA5_GRN_20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -38,7 +48,7 @@ experiments:
     #atmosphere_lapse_rate_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_21ka_NHEM_40km_refHeightOnly.nc
     icedynamic: "{{icedynamics.siae3-q04}}"
     time: "{{times.spinup-relax-1year}}"
-    
+
   PD-GRN-20km-ERA5-spinup-100ka-nomass-sia:
     i: /mnt/wrk4/sbeyer/datasets/era5/ERA5_GRN_20km.nc
     regrid_file: /work/sbeyer/psg2/experiments/PD-GRN-20km-ERA5-spinup-relax/PD-GRN-20km-ERA5-spinup-relax.nc
@@ -54,7 +64,7 @@ experiments:
     time: "{{times.spinup-125ka}}"
     no_mass: yes
     stress_balance: sia
-    
+
   PD-GRN-20km-ERA5-50ka-afterspinup:
     i: /mnt/wrk4/sbeyer/datasets/era5/ERA5_GRN_20km.nc
     regrid_file: /work/sbeyer/psg2/experiments/PD-GRN-20km-ERA5-spinup-100ka-nomass-sia/PD-GRN-20km-ERA5-spinup-100ka-nomass-sia.nc
@@ -67,5 +77,5 @@ experiments:
     #atmosphere_lapse_rate_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_21ka_NHEM_40km_refHeightOnly.nc
     icedynamic: "{{icedynamics.siae3-q04}}"
     time: "{{times.50k-out100-more-from0}}"
-    
-    
+
+

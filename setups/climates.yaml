@@ -10,6 +10,10 @@ climates:
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.6
     
+  smb-given:
+    surface: given
+    surface_given_period: 1
+    
   pdd-simple-deltaT:
     atmosphere: given,delta_T
     atmosphere_given_period: 1
