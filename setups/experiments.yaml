@@ -15,6 +15,16 @@ experiments:
     surface_given_file: /mnt/wrk4/sbeyer/datasets/Greenland/Present_Day_Greenland/Searise_Greenland_4PISM.nc
     icedynamic: "{{icedynamics.siae3-q04}}"
     time: "{{times.50k-out100-more}}"
+    
+  RACMO2_20km-SMBgiven:
+    i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
+    grid: "{{grids.GRN-20km}}"
+    ocean: "{{oceans.pik-default}}"
+    front_retreat_file: /mnt/wrk4/sbeyer/datasets/oceankillmask/GRN_ocean_kill_20km.nc
+    climate: "{{climates.smb-given}}"
+    surface_given_file: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
+    icedynamic: "{{icedynamics.siae3-q04}}"
+    time: "{{times.50k-out100-more}}"
 
   LGM-NHEM-40km-constant-CESM-CAM5:
     i: /mnt/wrk4/sbeyer/datasets/cesm/CESM_CAM5_21ka_NHEM_40km.nc
