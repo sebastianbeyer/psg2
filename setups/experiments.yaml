@@ -14,7 +14,7 @@ experiments:
     front_retreat_file: /mnt/wrk4/sbeyer/datasets/oceankillmask/GRN_ocean_kill_20km.nc
     climate: "{{climates.smb-given}}"
     surface_given_file: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
-    icedynamic: "{{icedynamics.siae3-q04}}"
+    icedynamic: "{{icedynamics.siae2-q07}}"
     time: "{{times.50k-out100-more}}"
 
   SeaRise_20km-SMBgiven:
