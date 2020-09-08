@@ -29,6 +29,7 @@ icedynamics:
     ssa_e: 0.6
     pseudo_plastic_q: 0.75
     till_effective_fraction_overburden: 0.04
+    topg_to_phi: 2,45,-500,500
     
 
   param-study-siaE:
