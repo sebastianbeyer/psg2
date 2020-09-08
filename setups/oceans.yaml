@@ -32,5 +32,6 @@ oceans:
     calving: eigen_calving,thickness_calving
     thickness_calving_threshold: 200
     ocean: th
-    ocean_th_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_CAM5_PI_NHEM_40km.nc
+    ocean_th_period: 1
+    
     
