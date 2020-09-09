@@ -20,7 +20,7 @@ experiments:
   SeaRise_20km-SMBgiven:
     i: /mnt/wrk4/sbeyer/datasets/Greenland/Present_Day_Greenland/Searise_Greenland_4PISM.nc
     grid: "{{grids.GRN-20km}}"
-    ocean: "{{oceans.pik-default}}"
+    ocean: "{{oceans.hot}}"
     front_retreat_file: /mnt/wrk4/sbeyer/datasets/oceankillmask/GRN_ocean_kill_20km.nc
     climate: "{{climates.smb-given}}"
     surface_given_file: /mnt/wrk4/sbeyer/datasets/Greenland/Present_Day_Greenland/Searise_Greenland_4PISM.nc
