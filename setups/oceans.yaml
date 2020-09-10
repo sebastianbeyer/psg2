@@ -14,7 +14,7 @@ oceans:
     
   pik-default:
     calving: eigen_calving,thickness_calving
-    thickness_calving_threshold: 200
+    thickness_calving_threshold: 1000
     ocean: pik
     meltfactor_pik: 0.01
     
