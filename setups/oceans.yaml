@@ -18,6 +18,12 @@ oceans:
     ocean: pik
     meltfactor_pik: 0.01
     
+  calvingtest:
+    calving: eigen_calving,thickness_calving
+    thickness_calving_threshold: [1000, 50]
+    ocean: pik
+    meltfactor_pik: 0.01
+    
   hot:
     ocean: constant
     shelf_base_melt_rate: 10000
