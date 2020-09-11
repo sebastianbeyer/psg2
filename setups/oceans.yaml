@@ -18,6 +18,16 @@ oceans:
     ocean: pik
     meltfactor_pik: 0.01
     
+  flo-calving:
+    calving: eigen_calving,thickness_calving
+    thickness_calving_threshold: 100
+    ocean: pik
+    meltfactor_pik: 0.01
+    part_grid: yes
+    cfbc: yes
+    kill_icebergs: yes
+    eigen_calving_K: 1e16
+    
   calvingtest:
     calving: eigen_calving,thickness_calving
     thickness_calving_threshold: [1000, 50]
