@@ -20,13 +20,26 @@ oceans:
     
   flo-calving:
     calving: eigen_calving,thickness_calving
-    thickness_calving_threshold: 100
+    thickness_calving_threshold: 200
     ocean: pik
     meltfactor_pik: 0.01
     part_grid: yes
     cfbc: yes
     kill_icebergs: yes
     eigen_calving_K: 1e16
+    subgl: yes
+    
+  flo-calving-th:
+    calving: eigen_calving,thickness_calving
+    thickness_calving_threshold: 200
+    ocean: th
+    ocean_th_period: 1
+    part_grid: yes
+    cfbc: yes
+    kill_icebergs: yes
+    eigen_calving_K: 1e16
+    subgl: yes
+
     
   testEigencalving:
     calving: eigen_calving
