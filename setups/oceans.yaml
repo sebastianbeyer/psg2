@@ -14,7 +14,7 @@ oceans:
     
   pik-default:
     calving: eigen_calving,thickness_calving
-    thickness_calving_threshold: 1000
+    thickness_calving_threshold: 100
     ocean: pik
     meltfactor_pik: 0.01
     
@@ -27,6 +27,13 @@ oceans:
     cfbc: yes
     kill_icebergs: yes
     eigen_calving_K: 1e16
+    
+  testEigencalving:
+    calving: eigen_calving
+    ocean: pik
+    meltfactor_pik: 0.01
+    eigen_calving_K: [1e5, 1e10, 1e16]
+    
     
   calvingtest:
     calving: eigen_calving,thickness_calving

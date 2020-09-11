@@ -38,6 +38,16 @@ experiments:
     icedynamic: "{{icedynamics.siae2-q07}}"
     time: "{{times.50k-out100-smb}}"
     
+  RACMO2_20km-SMBgiven-testEigencalving:
+    i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
+    grid: "{{grids.GRN-20km}}"
+    ocean: "{{oceans.testEigencalving}}"
+    front_retreat_file: /mnt/wrk4/sbeyer/datasets/oceankillmask/GRN_ocean_kill_20km.nc
+    climate: "{{climates.smb-given}}"
+    surface_given_file: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
+    icedynamic: "{{icedynamics.siae2-q07}}"
+    time: "{{times.50k-out100-smb}}"
+    
   SeaRise_20km-SMBgiven:
     i: /mnt/wrk4/sbeyer/datasets/Greenland/Present_Day_Greenland/Searise_Greenland_4PISM.nc
     grid: "{{grids.GRN-20km}}"
