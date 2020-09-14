@@ -6,6 +6,17 @@ experiments:
     timestep_hit_multiplies: 1
     config_override: ./pism_config.nc
     
+  RACMO2_20km-SMBgiven-withCESMOcean_natureparams:
+    i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
+    grid: "{{grids.GRN-20km}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    ocean_th_file: /mnt/wrk4/sbeyer/datasets/CESM_Brian/ocean/CESM_ocean_brian_top200m_GRN20_filled_ordered.nc
+    front_retreat_file: /mnt/wrk4/sbeyer/datasets/oceankillmask/GRN_ocean_kill_20km.nc
+    climate: "{{climates.smb-given}}"
+    surface_given_file: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
+    icedynamic: "{{icedynamics.nature-highres}}"
+    time: "{{times.50k-out100-smb}}"
+    
   RACMO2_20km-SMBgiven-withCESMOcean:
     i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
     grid: "{{grids.GRN-20km}}"

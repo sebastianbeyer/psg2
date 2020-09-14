@@ -18,6 +18,7 @@ icedynamics:
     sia_e: 1.25
     ssa_e: 1
     pseudo_plastic_q: 0.6
+    topg_to_phi: 5,40,-700,700
     
   siae3-q04:
     sia_e: 3
