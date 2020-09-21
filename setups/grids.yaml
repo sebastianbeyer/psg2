@@ -32,6 +32,14 @@ grids:
     Lz: 4000
     Lbz: 2000
     
+  GRN-10km:
+    Mx: 176
+    My: 304
+    Mz: 101
+    Mbz: 21
+    Lz: 4000
+    Lbz: 2000
+    
   SeaRise-5km:
     Mx: 301
     My: 561
