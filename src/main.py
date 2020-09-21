@@ -285,7 +285,6 @@ def sequence_command(args):
             write_to_file(setup, 'PISM_bash.sh')
             make_file_executable(setup)
 
-    print(runscripts)
     write_allruns(runscripts)
 
 
