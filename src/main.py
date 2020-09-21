@@ -213,6 +213,7 @@ def write_allruns(runscripts):
         rsh.write('''\
 #! /bin/bash
 # psg2 runfile
+set -e
 ''')
     with open(allrunFile, 'a') as f:
         for runscript in runscripts:
