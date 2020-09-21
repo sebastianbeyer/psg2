@@ -78,26 +78,26 @@ def flatten_dict(d):
     return dict(items())
 
 
-def add_filenames_to_tree(name, tree):
+def add_filenames_to_tree(name, tree, stagetag=""):
     outFile = os.path.join(
         paths.exp_envs_path,
         name,
-        name + '.nc',
+        name + stagetag + '.nc',
     )
     tsFile = os.path.join(
         paths.exp_envs_path,
         name,
-        'ts_' + name + '.nc',
+        'ts_' + name + stagetag + '.nc',
     )
     extraFile = os.path.join(
         paths.exp_envs_path,
         name,
-        'ex_' + name + '.nc',
+        'ex_' + name + stagetag + '.nc',
     )
     runscriptFile = os.path.join(
         paths.exp_envs_path,
         tree['name'],
-        'run' + tree['name'] + '.sh',
+        'run' + tree['name'] + stagetag + '.sh',
     )
 
     tree['o'] = outFile
@@ -159,8 +159,9 @@ def add_name_to_setup(setup, name):
     return setup
 
 
-def handle_parameter_study(setup):
+def handle_parameter_study(setup, stagetag=""):
     """This returns a list of setups, only one when there is no study.
+    Stagetag is only nonempty for (grid)sequences
     """
     setup_list = [setup]
     for key, value in setup.items():
@@ -176,26 +177,26 @@ def handle_parameter_study(setup):
                 new_setup['o'] = os.path.join(
                     paths.exp_envs_path,
                     setup['name'],
-                    setup['name'] + "_param-" + key + "-" + str(parameter) +
-                    '_.nc',
+                    setup['name'] + stagetag + "_param-" + key + "-" +
+                    str(parameter) + '_.nc',
                 )
                 new_setup['ts_file'] = os.path.join(
                     paths.exp_envs_path,
                     setup['name'],
-                    'ts_' + setup['name'] + "_param-" + key + "-" +
-                    str(parameter) + '_.nc',
+                    'ts_' + setup['name'] + stagetag + + "_param-" + key +
+                    "-" + str(parameter) + '_.nc',
                 )
                 new_setup['extra_file'] = os.path.join(
                     paths.exp_envs_path,
                     setup['name'],
-                    'ex_' + setup['name'] + "_param-" + key + "-" +
-                    str(parameter) + '_.nc',
+                    'ex_' + setup['name'] + stagetag + + "_param-" + key +
+                    "-" + str(parameter) + '_.nc',
                 )
                 new_setup['runscript_file'] = os.path.join(
                     paths.exp_envs_path,
                     setup['name'],
-                    'run_' + setup['name'] + "_param-" + key + "-" +
-                    str(parameter) + '_.sh',
+                    'run_' + setup['name'] + stagetag + + "_param-" + key +
+                    "-" + str(parameter) + '_.sh',
                 )
 
                 setup_list.append(new_setup)
@@ -225,6 +226,44 @@ def generate_command(args):
         make_file_executable(setup)
 
 
+def sequence_command(args):
+    """This runs when the sequence command is given on the command line
+    """
+    name = args.seq
+    all_setups, _ = load_yaml(paths.setups_path)
+    sequence = flatten_dict(all_setups['sequences'][name])
+    sequence = add_name_to_setup(sequence, name)
+    sequence = merge_with_default(all_setups, sequence)
+    # pprint.pprint(sequence)
+
+    # remove stages from tree and save separately
+    stages = sequence['stages']
+    del sequence['stages']
+
+    for i, stage in enumerate(stages):
+        add_filenames_to_tree(name, sequence, "_stage{}".format(i))
+        if i > 0:
+            sequence['regrid_file'] = prev_stage_output
+        # remember output for next stage
+        prev_stage_output = sequence['o']
+
+        # print(stage)
+        del stage['stage']  # remove stage variable...
+        stage_flat = flatten_dict(stage)
+        sequence_copy = sequence.copy()
+
+        # update setup with stage parameters
+        sequence_copy.update(stage_flat)
+        pprint.pprint(sequence_copy)
+
+        # check parameter studies
+        setup_list = handle_parameter_study(sequence_copy,
+                                            "_stage{}".format(i))
+        for setup in setup_list:
+            write_to_file(setup, 'PISM_bash.sh')
+            make_file_executable(setup)
+
+
 parser = argparse.ArgumentParser(description='Generate pism runs')
 # parser.add_argument('exp', help='name of the experiment', type=str)
 
@@ -237,6 +276,10 @@ parser_list.set_defaults(func=listCmd)
 parser_generate = subparsers.add_parser('generate')
 parser_generate.add_argument('exp')
 parser_generate.set_defaults(func=generate_command)
+
+parser_generate = subparsers.add_parser('sequence')
+parser_generate.add_argument('seq')
+parser_generate.set_defaults(func=sequence_command)
 
 parser_rsync = subparsers.add_parser('rsync')
 parser_rsync.add_argument('experiment')
