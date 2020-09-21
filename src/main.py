@@ -204,6 +204,25 @@ def handle_parameter_study(setup, stagetag=""):
     return setup_list
 
 
+def write_allruns(runscripts):
+    """
+    Writes a bash script which runs all runs of sequence or param study
+    """
+    allrunFile = os.path.dirname(runscripts[0]) + "/runall.sh"
+    with open(allrunFile, 'w') as rsh:
+        rsh.write('''\
+#! /bin/bash
+# psg2 runfile
+''')
+    with open(allrunFile, 'a') as f:
+        for runscript in runscripts:
+            line = "./{} ".format(os.path.basename(runscript))
+            f.write('' + line + '\n')
+
+    st = os.stat(allrunFile)
+    os.chmod(allrunFile, st.st_mode | stat.S_IEXEC)
+
+
 def is_study(setup_list):
     return len(setup_list) > 1
 
@@ -240,6 +259,7 @@ def sequence_command(args):
     stages = sequence['stages']
     del sequence['stages']
 
+    runscripts = []
     for i, stage in enumerate(stages):
         add_filenames_to_tree(name, sequence, "_stage{}".format(i))
         if i > 0:
@@ -254,14 +274,19 @@ def sequence_command(args):
 
         # update setup with stage parameters
         sequence_copy.update(stage_flat)
-        pprint.pprint(sequence_copy)
+        # pprint.pprint(sequence_copy)
 
         # check parameter studies
         setup_list = handle_parameter_study(sequence_copy,
                                             "_stage{}".format(i))
+
         for setup in setup_list:
+            runscripts.append(setup['runscript_file'])
             write_to_file(setup, 'PISM_bash.sh')
             make_file_executable(setup)
+
+    print(runscripts)
+    write_allruns(runscripts)
 
 
 parser = argparse.ArgumentParser(description='Generate pism runs')
