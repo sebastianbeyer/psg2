@@ -10,9 +10,18 @@ sequences:
   # 2.5 km at -850 a,
   # 2 km at -350 a.
     setup: RACMO2_20km-SMBgiven-withCESMOcean_natureparams
+    ocean: "{{oceans.flo-calving-th}}"
+    climate: "{{climates.smb-given}}"
+    icedynamic: "{{icedynamics.nature-highres}}"
+    time: "{{times.50k-out100-smb}}"
+
+
     stages:
       - stage: 0
-        i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
+        i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
+        ocean_th_file: /mnt/wrk4/sbeyer/datasets/CESM_Brian/ocean/CESM_ocean_Brian_top200m_GRN20.nc
+        front_retreat_file: /mnt/wrk4/sbeyer/datasets/oceankillmask/GRN_ocean_kill_20km.nc
+        surface_given_file: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
         grid: "{{grids.GRN-20km}}"
         ys: 0
         ye: 50000
@@ -21,24 +30,42 @@ sequences:
         no_mass: yes
         stress_balance: sia
       - stage: 1
-        i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_10km.nc
-        grid: "{{grids.GRN-10km}}"
+        i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
+        ocean_th_file: /mnt/wrk4/sbeyer/datasets/CESM_Brian/ocean/CESM_ocean_Brian_top200m_GRN20.nc
+        front_retreat_file: /mnt/wrk4/sbeyer/datasets/oceankillmask/GRN_ocean_kill_20km.nc
+        surface_given_file: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
+        grid: "{{grids.GRN-20km}}"
         ys: -125000
         ye: -7000
         ts_times: 10
         extra_times: 100
         stress_balance: ssa+sia
         regrid_vars: litho_temp,thk,enthalpy,tillwat,bmelt
-        
-        
-    
+      - stage: 2
+        i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN10km.nc
+        ocean_th_file: /mnt/wrk4/sbeyer/datasets/CESM_Brian/ocean/CESM_ocean_Brian_top200m_GRN10.nc
+        front_retreat_file: /mnt/wrk4/sbeyer/datasets/oceankillmask/GRN_ocean_kill_10km.nc
+        surface_given_file: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN10km.nc
+        grid: "{{grids.GRN-10km}}"
+        ys: -7000
+        ye: -2000
+        ts_times: 10
+        extra_times: 100
+        stress_balance: ssa+sia
+        regrid_vars: litho_temp,thk,enthalpy,tillwat,bmelt
+      - stage: 3
+        i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN5km.nc
+        ocean_th_file: /mnt/wrk4/sbeyer/datasets/CESM_Brian/ocean/CESM_ocean_Brian_top200m_GRN5.nc
+        front_retreat_file: /mnt/wrk4/sbeyer/datasets/oceankillmask/GRN_ocean_kill_5km.nc
+        surface_given_file: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN10km.nc
+        grid: "{{grids.GRN-5km}}"
+        ys: -2000
+        ye: -0
+        ts_times: 10
+        extra_times: 100
+        stress_balance: ssa+sia
+        regrid_vars: litho_temp,thk,enthalpy,tillwat,bmelt
 
-    ocean: "{{oceans.flo-calving-th}}"
-    ocean_th_file: /mnt/wrk4/sbeyer/datasets/CESM_Brian/ocean/CESM_ocean_brian_top200m_GRN20_filled_ordered.nc
-    front_retreat_file: /mnt/wrk4/sbeyer/datasets/oceankillmask/GRN_ocean_kill_20km.nc
-    climate: "{{climates.smb-given}}"
-    surface_given_file: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
-    icedynamic: "{{icedynamics.nature-highres}}"
-    time: "{{times.50k-out100-smb}}"
-    
+
+
 
