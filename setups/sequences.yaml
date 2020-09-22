@@ -14,6 +14,11 @@ sequences:
     climate: "{{climates.smb-given}}"
     icedynamic: "{{icedynamics.nature-highres}}"
     time: "{{times.50k-out100-smb}}"
+    #
+    ssafd_picard_rtol: 1.0e-4
+    ssafd_picard_maxi: 300 
+    ssafd_nuH_iter_failure_underrelaxation: 0.8 
+    ssa_eps: 1.0e13
 
 
     stages:
