@@ -3,7 +3,9 @@ experiments:
   default:
     bootstrap: yes
     n_procs: 32
-    timestep_hit_multiplies: 1
+    timestep_hit_multiples: 1
+    options_left: yes
+    tauc_slippery_grounding_lines: yes
     config_override: ./pism_config.nc
     
   RACMO2_20km-SMBgiven-withCESMOcean_natureparams:
