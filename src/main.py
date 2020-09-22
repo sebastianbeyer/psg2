@@ -109,7 +109,7 @@ def add_filenames_to_tree(name, tree, stagetag=""):
 def append_tree_options_to_file(tree, out_file):
     """
     """
-    noWriteKeys = ["name", "n_procs", "runscript_file"]
+    noWriteKeys = ["name", "n_procs", "runscript_file", "setup"]
     with open(out_file, 'a') as f:
         for key, value in tree.items():
             if key not in noWriteKeys:
