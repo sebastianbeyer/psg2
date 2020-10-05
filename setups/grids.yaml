@@ -33,16 +33,16 @@ grids:
     Lbz: 2000
     
   GRN-10km:
-    Mx: 176
-    My: 304
+    Mx: 175
+    My: 303
     Mz: 101
     Mbz: 21
     Lz: 4000
     Lbz: 2000
     
   GRN-5km:
-    Mx: 352
-    My: 608
+    Mx: 349
+    My: 605
     Mz: 101
     Mbz: 21
     Lz: 4000
