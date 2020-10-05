@@ -183,19 +183,19 @@ def handle_parameter_study(setup, stagetag=""):
                 new_setup['ts_file'] = os.path.join(
                     paths.exp_envs_path,
                     setup['name'],
-                    'ts_' + setup['name'] + stagetag + + "_param-" + key +
+                    'ts_' + setup['name'] + stagetag + "_param-" + key +
                     "-" + str(parameter) + '_.nc',
                 )
                 new_setup['extra_file'] = os.path.join(
                     paths.exp_envs_path,
                     setup['name'],
-                    'ex_' + setup['name'] + stagetag + + "_param-" + key +
+                    'ex_' + setup['name'] + stagetag + "_param-" + key +
                     "-" + str(parameter) + '_.nc',
                 )
                 new_setup['runscript_file'] = os.path.join(
                     paths.exp_envs_path,
                     setup['name'],
-                    'run_' + setup['name'] + stagetag + + "_param-" + key +
+                    'run_' + setup['name'] + stagetag + "_param-" + key +
                     "-" + str(parameter) + '_.sh',
                 )
 
@@ -232,6 +232,7 @@ def generate_command(args):
     """This runs when the generate command is given on the command line
     """
     name = args.exp
+    runfile_template = args.runfile_template
     all_setups, _ = load_yaml(paths.setups_path)
     single_setup = flatten_dict(all_setups['experiments'][name])
     single_setup = add_name_to_setup(single_setup, name)
@@ -242,8 +243,9 @@ def generate_command(args):
     # check parameter studies
     setup_list = handle_parameter_study(single_setup)
     for setup in setup_list:
-        write_to_file(setup, 'PISM_bash.sh')
+        write_to_file(setup, runfile_template)
         make_file_executable(setup)
+
 
 
 def sequence_command(args):
@@ -300,6 +302,9 @@ parser_list.set_defaults(func=listCmd)
 
 parser_generate = subparsers.add_parser('generate')
 parser_generate.add_argument('exp')
+parser_generate.add_argument('--runfile_template',
+                             default="PISM_bash.sh",
+                             choices=["PISM_bash.sh", "PISM_SLURM.sh"])
 parser_generate.set_defaults(func=generate_command)
 
 parser_generate = subparsers.add_parser('sequence')
