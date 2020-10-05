@@ -1,5 +1,20 @@
 icedynamics:
 
+
+  flowlawstudy_ssan:
+    sia_e: 1.5
+    ssa_e: 1
+    pseudo_plastic_q: 0.6
+    ssa_n: [3, 2.25, 3.5]
+    topg_to_phi: 5,40,-700,700
+
+
+  flowlawstudy_q:
+    sia_e: 1.5
+    ssa_e: 1
+    pseudo_plastic_q: [0.2, 0.4, 0.5, 0.6, 0.7, 0.8]
+    topg_to_phi: 5,40,-700,700
+
   niu2019:
     sia_e: 5
     ssa_e: 1
@@ -19,6 +34,7 @@ icedynamics:
     ssa_e: 1
     pseudo_plastic_q: 0.6
     topg_to_phi: 5,40,-700,700
+    
     
   siae3-q04:
     sia_e: 3
