@@ -12,7 +12,7 @@ experiments:
     i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
     ocean: "{{oceans.flo-calving-th}}"
-    ocean_th_file: /mnt/wrk4/sbeyer/datasets/CESM_Brian/ocean/CESM_ocean_brian_top200m_GRN20_filled_ordered.nc
+    ocean_th_file: /mnt/wrk4/sbeyer/datasets/CESM_Brian/ocean/CESM_ocean_Brian_top200m_GRN20.nc
     front_retreat_file: /mnt/wrk4/sbeyer/datasets/oceankillmask/GRN_ocean_kill_20km.nc
     climate: "{{climates.smb-given}}"
     surface_given_file: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
