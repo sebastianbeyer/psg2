@@ -90,6 +90,10 @@ print(thk_first.shape)
 thk_diff = thk_last - thk_first
 thk_diffperc = thk_diff / thk_first
 
+RMSE = np.sqrt(np.mean(thk_diff**2))
+print("RMSE:")
+print(RMSE)
+
 axThkObs.coastlines(resolution='110m')
 axThkObs.set_extent(netcdfExtend, crs=crs)
 # axThk.set_extent(extent, crs=crs)
