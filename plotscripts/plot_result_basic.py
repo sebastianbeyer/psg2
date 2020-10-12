@@ -144,7 +144,7 @@ imgDiffPerc = axDiffPerc.imshow(thk_diffperc,
 cbDiffPerc = plt.colorbar(imgDiffPerc, ax=axDiffPerc, shrink=0.8)
 cbDiffPerc.set_label('Thickness difference (normalized)')
 
-# axThk.set_title(title)
+axDiffPerc.set_title("RMSE: {:4.0f} m".format(RMSE))
 
 # ax.gridlines()
 print(args.modelfile + "result" + ".png")
