@@ -8,6 +8,17 @@ experiments:
     tauc_slippery_grounding_lines: yes
     config_override: ./pism_config.nc
     
+  Searise_on_GRN20:
+    i: /mnt/wrk4/sbeyer/datasets/Greenland/Present_Day_Greenland/Searise_4PISM_GRN20_filled.nc
+    grid: "{{grids.GRN-20km}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    ocean_th_file: /mnt/wrk4/sbeyer/datasets/CESM_Brian/ocean/CESM_ocean_Brian_top200m_GRN20.nc
+    front_retreat_file: /mnt/wrk4/sbeyer/datasets/Greenland/Present_Day_Greenland/Searise_4PISM_GRN20_filled.nc
+    climate: "{{climates.smb-given}}"
+    surface_given_file: /mnt/wrk4/sbeyer/datasets/Greenland/Present_Day_Greenland/Searise_4PISM_GRN20_filled.nc
+    icedynamic: "{{icedynamics.nature-highres}}"
+    time: "{{times.50k-out100-smb}}"
+    
   RACMO2_20km-SMBgiven-withCESMOcean_meltcoast:
     # melt all where initial ice is 0
     i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km_meltcoast.nc
