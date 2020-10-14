@@ -27,6 +27,9 @@ vmaxTemp = 10
 vminPrec = 0
 vmaxPrec = 2000
 
+def get_extend(x, y):
+    """Read extend from x and y variables and return extend to be used with cartopy"""
+    return [x[0], x[-1], y[0], y[-1]]
 
 
 data = Dataset(args.modelfile, mode='r')
@@ -41,6 +44,8 @@ cmb = data.variables['climatic_mass_balance'][:]
 #     modeltemp = modeltemp - 273
 data.close()
 
+netcdfExtend = get_extend(x, y)
+extent = netcdfExtend
 
 cmap = cm.get_cmap('GnBu', 21)    # 11 discrete colors
 cmap = cm.get_cmap('RdBu', 21)    # 11 discrete colors
@@ -72,7 +77,7 @@ axCMB.coastlines(resolution='110m')
 axCMB.set_extent(extent, crs=crs)
 imgCMB = axCMB.imshow(CMBmean,
                         transform=crs,
-                        extent=[-6240000, 6240000, -6240000, 6240000],
+                        extent=netcdfExtend,
                         cmap=cmap,
                         norm=norm,
                         origin='lower',
