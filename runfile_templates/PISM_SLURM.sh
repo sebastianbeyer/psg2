@@ -6,9 +6,9 @@
 ##
 
 #SBATCH --partition=clx
-#SBATCH --ntasks=60
-#SBATCH --tasks-per-node=20
-#SBATCH --time=48:00:00
+#SBATCH --ntasks=40
+#SBATCH --tasks-per-node=40
+#SBATCH --time=12:00:00
 #SBATCH --mail-user=sbeyer@marum.de
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
@@ -16,5 +16,5 @@
 #SBATCH --output=pism.%j
 
 
-srun pismr \
+srun --mpi=pmix pismr \
 
