@@ -18,7 +18,7 @@ experiments:
     atmosphere_lapse_rate_file: $WORK/datasets/CESM_Brian/CESM_for_PISM/CESM_PD_RefHeight_GRN20km.nc
     pdd_sd_file: $WORK/datasets/CESM_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
     pdd_sd_period: 1
-    climate: "{{climates.PDD-simple}}"
+    climate: "{{climates.pdd-simple}}"
     icedynamic: "{{icedynamics.nature-highres}}"
     time: "{{times.50k-out100}}"
     
