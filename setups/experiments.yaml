@@ -18,7 +18,7 @@ experiments:
     pdd_sd_period: 1
     climate: "{{climates.pdd-simple}}"
     icedynamic: "{{icedynamics.nature-highres}}"
-    time: "{{times.test-pdd}}
+    time: "{{times.test-pdd}}"
     
   CESM_PD_wocean_20km:
     i: $WORK/datasets/CESM_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
