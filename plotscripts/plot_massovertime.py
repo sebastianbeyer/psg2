@@ -27,10 +27,10 @@ x = data.variables['x'][:]
 y = data.variables['y'][:]
 
 thk = data.variables['thk'][:]
-vel = data.variables['velsurf_mag'][:]
+# vel = data.variables['velsurf_mag'][:]
 # acc = data.variables['surface_accumulation_flux'][:]
 # run = data.variables['surface_runoff_flux'][:]
-maskPISM = data.variables['mask'][:]
+# maskPISM = data.variables['mask'][:]
 data.close()
 
 print(thk.shape)
