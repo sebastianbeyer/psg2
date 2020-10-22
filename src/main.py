@@ -4,6 +4,7 @@ import os
 import stat
 import sys
 import argparse
+from shutil import copyfile
 import pprint
 from yaml import load, dump
 try:
@@ -245,7 +246,12 @@ def generate_command(args):
     for setup in setup_list:
         write_to_file(setup, runfile_template)
         make_file_executable(setup)
-
+    if args.copy_config:
+        print("copied config file into experiment folder")
+        out_file = setup['runscript_file']
+        out_dir = os.path.dirname(out_file)
+        copyfile(os.path.join(paths.pism_config_path, 'pism_config.nc'),
+                 os.path.join(out_dir, 'pism_config.nc'))
 
 
 def sequence_command(args):
@@ -305,6 +311,9 @@ parser_generate.add_argument('exp')
 parser_generate.add_argument('--runfile_template',
                              default="PISM_bash.sh",
                              choices=["PISM_bash.sh", "PISM_SLURM.sh"])
+parser_generate.add_argument('--copy_config',
+                             action='store_true',
+                             help="copy the default config into experiment folder")
 parser_generate.set_defaults(func=generate_command)
 
 parser_generate = subparsers.add_parser('sequence')

@@ -12,3 +12,4 @@ setups_path = os.path.join(psg_prefix, "setups")
 templates_path = os.path.join(psg_prefix, "runfile_templates")
 
 exp_envs_path = os.path.join(psg_prefix, 'experiments')
+pism_config_path = os.path.join(psg_prefix, 'pism_config_file')
