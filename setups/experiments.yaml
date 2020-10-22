@@ -8,6 +8,22 @@ experiments:
     tauc_slippery_grounding_lines: yes
     config_override: ./pism_config.nc
     
+  RACMO2_PDD_20km:
+  # no temp std deviation in this case :(
+  # so use the CESM data for that...
+    i: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
+    grid: "{{grids.GRN-20km}}"
+    front_retreat_file: $WORK/datasets/oceankillmask/GRN_ocean_kill_20km.nc
+    ocean: "{{oceans.flo-calving-th}}"
+    ocean_th_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/ocean/CESM_ocean_Brian_top200m_GRN20.nc
+    atmosphere_given_file: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
+    atmosphere_lapse_rate_file: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km_refHeight.nc
+    pdd_sd_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
+    pdd_sd_period: 1
+    climate: "{{climates.pdd-simple}}"
+    icedynamic: "{{icedynamics.nature-highres}}"
+    time: "{{times.50k-out100-more}}"
+    
   RACMO2_test-PDD_20km:
   # no temp std deviation in this case :(
   # so use the CESM data for that...
