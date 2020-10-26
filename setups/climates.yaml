@@ -14,6 +14,22 @@ climates:
     surface: given
     surface_given_period: 1
     
+    
+  pdd-ziemen:
+    atmosphere: given
+    atmosphere_given_period: 1
+    temp_lapse_rate: 5
+    surface: pdd
+    # marsiat 1994
+    surface.pdd.air_temp_all_precip_as_rain: 280.15
+    surface.pdd.air_temp_all_precip_as_snow: 263.15
+    # ziemen dissertation
+    surface.pdd.factor_ice: 0.0129
+    surface.pdd.factor_snow: 0.0032
+    surface.pdd.refreeze: 0.6
+    
+    
+    
   pdd-simple-deltaT:
     atmosphere: given,delta_T
     atmosphere_given_period: 1
