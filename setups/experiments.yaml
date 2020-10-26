@@ -10,7 +10,7 @@ experiments:
     
   CESM_LGM_wocean_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_LGM_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_LGM_4PISM_NHEM20km.nc
-    grid: "{{grids.GRN-20km}}"
+    grid: "{{grids.NHEM-20km}}"
     ocean: "{{oceans.flo-calving-th}}"
     ocean_th_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_LGM_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_LGM_4PISM_NHEM20km.nc
     front_retreat_file: $WORK/datasets/oceankillmask/NHEM_ocean_kill_20km.nc
