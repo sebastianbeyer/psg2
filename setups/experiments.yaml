@@ -72,6 +72,8 @@ experiments:
     atmosphere_lapse_rate_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_RefHeight_GRN20km.nc
     pdd_sd_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
     pdd_sd_period: 1
+    ocean: "{{oceans.flo-calving-th}}"
+    ocean_th_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/ocean/CESM_ocean_Brian_top200m_GRN20.nc
     climate: "{{climates.pdd-ziemen}}"
     icedynamic: "{{icedynamics.nature-highres}}"
     time: "{{times.50k-out100-more}}"
