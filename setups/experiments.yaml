@@ -74,7 +74,7 @@ experiments:
     pdd_sd_period: 1
     climate: "{{climates.pdd-ziemen}}"
     icedynamic: "{{icedynamics.nature-highres}}"
-    time: "{{times.times.50k-out100-more}}"
+    time: "{{times.50k-out100-more}}"
     
   CESM_test-PDDziemen_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
