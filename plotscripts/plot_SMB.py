@@ -27,6 +27,7 @@ vmaxTemp = 10
 vminPrec = 0
 vmaxPrec = 2000
 
+
 def get_extend(x, y):
     """Read extend from x and y variables and return extend to be used with cartopy"""
     return [x[0], x[-1], y[0], y[-1]]
@@ -52,7 +53,7 @@ cmap = cm.get_cmap('RdBu', 21)    # 11 discrete colors
 # cmap_diff = cm.get_cmap('RdBu', 21)    # 11 discrete colors
 #
 
-## custom colormap as in the paper
+# custom colormap as in the paper
 bounds = [-6400, -3200, -1600, -800, -400, -200, -100, -50, -25, -5, 0,
           5, 25, 50, 100, 200, 400, 800, 1600, 3200, 6400]
 
@@ -66,26 +67,32 @@ fig, axes = plt.subplots(1,
                          1,
                          subplot_kw={'projection': crs},
                          figsize=(4, 4))
-print(axes)
+# print(axes)
 
 axCMB = axes
 
 CMBmean = np.mean(cmb, axis=0)
 
 
+CMBmasked = np.ma.masked_equal(CMBmean, 0)
+CMBsinglemean = np.mean(CMBmasked)
+
+print("mean smb")
+print(CMBsinglemean)
+
 axCMB.coastlines(resolution='110m')
 axCMB.set_extent(extent, crs=crs)
 imgCMB = axCMB.imshow(CMBmean,
-                        transform=crs,
-                        extent=netcdfExtend,
-                        cmap=cmap,
-                        norm=norm,
-                        origin='lower',
-                        )
+                      transform=crs,
+                      extent=netcdfExtend,
+                      cmap=cmap,
+                      norm=norm,
+                      origin='lower',
+                      )
 cbCMB = plt.colorbar(imgCMB, ax=axCMB, shrink=0.8)
 cbCMB.set_label('climatic mass balance')
 
-axCMB.set_title(title)
+axCMB.set_title(title + "\n" + "mean: {:6.0f}".format(CMBsinglemean))
 
 # ax.gridlines()
 plt.savefig(args.modelfile + "_CMB" + ".png", dpi=300)
