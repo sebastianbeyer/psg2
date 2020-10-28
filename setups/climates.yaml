@@ -1,6 +1,6 @@
 climates:
   pdd-simple:
-    atmosphere: given
+    atmosphere: given,elevation_change
     atmosphere_given_period: 1
     temp_lapse_rate: 5
     surface: pdd
@@ -16,7 +16,7 @@ climates:
     
     
   pdd-ziemen:
-    atmosphere: given
+    atmosphere: given,elevation_change
     atmosphere_given_period: 1
     temp_lapse_rate: 5
     surface: pdd
