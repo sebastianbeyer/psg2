@@ -28,7 +28,17 @@ climates:
     surface.pdd.factor_snow: 0.0032
     surface.pdd.refreeze: 0.6
     
-    
+
+  pdd-lapserate-study:
+    atmosphere: given,elevation_change
+    atmosphere_given_period: 1
+    temp_lapse_rate: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+    surface: pdd
+    surface.pdd.air_temp_all_precip_as_rain: 275.15
+    surface.pdd.air_temp_all_precip_as_snow: 273.15
+    surface.pdd.factor_ice: 0.0088
+    surface.pdd.factor_snow: 0.0033
+    surface.pdd.refreeze: 0.6
     
   pdd-simple-deltaT:
     atmosphere: given,delta_T

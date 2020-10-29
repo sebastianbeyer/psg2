@@ -52,7 +52,7 @@ times:
     extra_times: '0:monthly:1'
     test_climate_models: yes
     no_mass: yes
-    extra_vars: 'climatic_mass_balance,effective_precipitation,air_temp_snapshot'
+    extra_vars: 'usurf,climatic_mass_balance,effective_precipitation,effective_air_temp,air_temp_snapshot,surface_accumulation_flux,surface_melt_flux,surface_runoff_flux,surface_layer_thickness'
 
     
   spinup-relax-1year:
