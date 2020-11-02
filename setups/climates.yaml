@@ -48,7 +48,7 @@ climates:
     atmosphere_given_period: 1
     temp_lapse_rate: 5
     precip_adjustment: shift
-    precip_lapse_rate: [0, 1, 2, 5, 10, 20, 30, 50, 70]
+    precip_lapse_rate: [0, 1, 2, 10, 20, 30, 50, 100, 200, 300, 500]
     surface: pdd
     surface.pdd.air_temp_all_precip_as_rain: 275.15
     surface.pdd.air_temp_all_precip_as_snow: 273.15
