@@ -128,7 +128,7 @@ experiments:
     pdd_sd_period: 1
     climate: "{{climates.pdd-simple-wprecipscale}}"
     icedynamic: "{{icedynamics.nature-highres}}"
-    time: "{{times.50k-out100}}"
+    time: "{{times.50k-out100-more}}"
     
   Searise_on_GRN20:
     i: $WORK/datasets/Greenland/Present_Day_Greenland/Searise_4PISM_GRN20_filled.nc
