@@ -64,6 +64,20 @@ experiments:
     icedynamic: "{{icedynamics.nature-highres}}"
     time: "{{times.test-pdd}}"
     
+    
+  CESM_PDD_lapserate_precip_shift-study_20km:
+    i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
+    grid: "{{grids.GRN-20km}}"
+    front_retreat_file: $WORK/datasets/oceankillmask/GRN_ocean_kill_20km.nc
+    atmosphere_given_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
+    atmosphere_lapse_rate_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_RefHeight_GRN20km.nc
+    pdd_sd_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
+    pdd_sd_period: 1
+    climate: "{{climates.pdd-precip_shift-study}}"
+    icedynamic: "{{icedynamics.nature-highres}}"
+    time: "{{times.test-pdd}}"
+    
+    
   CESM_test-PDD_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
