@@ -18,9 +18,10 @@ icedynamics:
   niu2019:
     sia_e: 5
     ssa_e: 1
-    pseudo_plastic_q: 0.1
+    pseudo_plastic_q: 0.25
     till_effective_fraction_overburden: 0.01
     hydrology_tillwat_max: 1
+    topg_to_phi: 30,30,-700,700
 
   hindcasting:
     sia_e: 3
