@@ -8,6 +8,17 @@ experiments:
     tauc_slippery_grounding_lines: yes
     config_override: ./pism_config.nc
     
+    
+  SeaRise_20km:
+    i: $WORK/datasets/SeaRise/pism_Greenland_5km_v1.1.nc
+    grid: "{{grids.SeaRise-20km}}"
+    ocean: "{{oceans.flo-calving}}"
+    front_retreat_file: $WORK/datasets/SeaRise/pism_Greenland_5km_v1.1.nc
+    climate: "{{climates.smb-given}}"
+    surface_given_file: $WORK/datasets/SeaRise/pism_Greenland_5km_v1.1.nc
+    icedynamic: "{{icedynamics.nature-highres}}"
+    time: "{{times.50k-out100-smb}}"
+    
   CESM_LGM_wocean_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_LGM_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_LGM_4PISM_NHEM20km.nc
     grid: "{{grids.NHEM-20km-100vert}}"

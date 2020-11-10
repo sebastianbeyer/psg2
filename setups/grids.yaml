@@ -55,3 +55,11 @@ grids:
     Mbz: 21
     Lz: 4000
     Lbz: 2000
+    
+  SeaRise-20km:
+    Mx: 76
+    My: 141
+    Mz: 101
+    Mbz: 11
+    Lz: 4000
+    Lbz: 2000

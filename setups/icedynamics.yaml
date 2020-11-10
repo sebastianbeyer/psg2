@@ -1,5 +1,12 @@
 icedynamics:
 
+  SeaRise:
+    sia_e: 3
+    ssa_e: 1
+    pseudo_plastic_q: 0.5
+    till_effective_fraction_overburden: 0.02
+    topg_to_phi: 15,40,-300,700
+
 
   flowlawstudy_ssan:
     sia_e: 1.5
