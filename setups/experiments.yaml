@@ -16,7 +16,7 @@ experiments:
     front_retreat_file: $WORK/datasets/SeaRise/pism_Greenland_5km_v1.1.nc
     climate: "{{climates.smb-given}}"
     surface_given_file: $WORK/datasets/SeaRise/pism_Greenland_5km_v1.1.nc
-    icedynamic: "{{icedynamics.nature-highres}}"
+    icedynamic: "{{icedynamics.SeaRise}}"
     time: "{{times.50k-out100-smb}}"
     
   CESM_LGM_wocean_20km:
