@@ -179,7 +179,7 @@ experiments:
     pdd_sd_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
     pdd_sd_period: 1
     climate: "{{climates.pdd-simple-wprecipscale}}"
-    icedynamic: "{{icedynamics.nature-highres}}"
+    icedynamic: "{{icedynamics.SeaRise}}"
     time: "{{times.50k-out100-more}}"
     
   Searise_on_GRN20:
