@@ -8,7 +8,7 @@ experiments:
     tauc_slippery_grounding_lines: yes
     config_override: ./pism_config.nc
     
-RACMO2_PDD_siaestudy_20km:
+  RACMO2_PDD_siaestudy_20km:
   # no temp std deviation in this case :(
   # so use the CESM data for that...
     i: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
@@ -24,7 +24,7 @@ RACMO2_PDD_siaestudy_20km:
     icedynamic: "{{icedynamics.flowlawstudy_siae}}"
     time: "{{times.50k-out100-more}}"
 
-RACMO2_PDD_qstudy_20km:
+  RACMO2_PDD_qstudy_20km:
   # no temp std deviation in this case :(
   # so use the CESM data for that...
     i: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
