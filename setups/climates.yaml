@@ -10,6 +10,19 @@ climates:
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.6
     
+    
+  SeaRise-wprecipscale:
+    atmosphere:  searise_greenland
+    atmosphere_given_period: 1
+    temp_lapse_rate: 5
+    surface: pdd
+    precip_adjustment: scale
+    surface.pdd.air_temp_all_precip_as_rain: 275.15
+    surface.pdd.air_temp_all_precip_as_snow: 273.15
+    surface.pdd.factor_ice: 0.0088
+    surface.pdd.factor_snow: 0.0033
+    surface.pdd.refreeze: 0.6
+    
   pdd-simple-wprecipscale:
     atmosphere: given,elevation_change
     atmosphere_given_period: 1
