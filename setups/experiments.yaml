@@ -8,18 +8,36 @@ experiments:
     tauc_slippery_grounding_lines: yes
     config_override: ./pism_config.nc
     
-  CESM_PD_wocean_seariseTemp_20km:
-    i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
+RACMO2_PDD_siaestudy_20km:
+  # no temp std deviation in this case :(
+  # so use the CESM data for that...
+    i: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
+    front_retreat_file: $WORK/datasets/oceankillmask/GRN_ocean_kill_20km.nc
     ocean: "{{oceans.flo-calving-th}}"
     ocean_th_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/ocean/CESM_ocean_Brian_top200m_GRN20.nc
-    front_retreat_file: $WORK/datasets/oceankillmask/GRN_ocean_kill_20km.nc
-    atmosphere_given_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
-    atmosphere_lapse_rate_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_RefHeight_GRN20km.nc
+    atmosphere_given_file: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
+    atmosphere_lapse_rate_file: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km_refHeight.nc
     pdd_sd_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
     pdd_sd_period: 1
-    climate: "{{climates.SeaRise-wprecipscale}}"
-    icedynamic: "{{icedynamics.SeaRise}}"
+    climate: "{{climates.pdd-simple}}"
+    icedynamic: "{{icedynamics.flowlawstudy_siae}}"
+    time: "{{times.50k-out100-more}}"
+
+RACMO2_PDD_qstudy_20km:
+  # no temp std deviation in this case :(
+  # so use the CESM data for that...
+    i: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
+    grid: "{{grids.GRN-20km}}"
+    front_retreat_file: $WORK/datasets/oceankillmask/GRN_ocean_kill_20km.nc
+    ocean: "{{oceans.flo-calving-th}}"
+    ocean_th_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/ocean/CESM_ocean_Brian_top200m_GRN20.nc
+    atmosphere_given_file: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
+    atmosphere_lapse_rate_file: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km_refHeight.nc
+    pdd_sd_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
+    pdd_sd_period: 1
+    climate: "{{climates.pdd-simple}}"
+    icedynamic: "{{icedynamics.flowlawstudy_q}}"
     time: "{{times.50k-out100-more}}"
     
     
@@ -180,6 +198,20 @@ experiments:
     pdd_sd_period: 1
     climate: "{{climates.pdd-simple-wprecipscale}}"
     icedynamic: "{{icedynamics.niu2019}}"
+    time: "{{times.50k-out100-more}}"
+    
+  CESM_PD_wocean_seariseTemp_20km:
+    i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
+    grid: "{{grids.GRN-20km}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    ocean_th_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/ocean/CESM_ocean_Brian_top200m_GRN20.nc
+    front_retreat_file: $WORK/datasets/oceankillmask/GRN_ocean_kill_20km.nc
+    atmosphere_given_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
+    atmosphere_lapse_rate_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_RefHeight_GRN20km.nc
+    pdd_sd_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
+    pdd_sd_period: 1
+    climate: "{{climates.SeaRise-wprecipscale}}"
+    icedynamic: "{{icedynamics.SeaRise}}"
     time: "{{times.50k-out100-more}}"
     
   CESM_PD_wocean_20km:
