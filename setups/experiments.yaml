@@ -70,6 +70,15 @@ experiments:
     icedynamic: "{{icedynamics.SeaRise}}"
     time: "{{times.50k-out100-more}}"
     
+  SeaRise_PDD_CESMclimate_CESMtemp_20km:
+    i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/SeaRise_pism_5km_v1.1_CESM.nc
+    grid: "{{grids.SeaRise-20km}}"
+    ocean: "{{oceans.flo-calving}}"
+    front_retreat_file: $WORK/datasets/SeaRise/pism_Greenland_5km_v1.1.nc
+    climate: "{{climates.pdd-simple-nolapserate}}"
+    icedynamic: "{{icedynamics.SeaRise}}"
+    time: "{{times.50k-out100-more}}"
+    
   CESM_LGM_wocean_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_LGM_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_LGM_4PISM_NHEM20km.nc
     grid: "{{grids.NHEM-20km-100vert}}"
