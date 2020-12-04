@@ -85,8 +85,10 @@ trendline = np.arange(0, nTimesteps) * trend[0] + trend[1]
 
 fig, (ax2) = plt.subplots(1, 1, sharey=False, figsize=(6, 6))
 
-ax2.plot(iceVolume, label='Ice volume (Mio km^2)')
-ax2.plot(trendline, label='trend')
+ax2.plot(iceVolume, label='Ice volume (Mio km^3)')
+# ax2.plot(trendline, label='trend')
+
+
 # ax2.plot(accumulation, label='accumulation (Gt/yr)')
 # ax2.plot(accumulationMean, label='mean accumulation (Gt/yr)')
 # ax2.plot(runoff, label='runoff (Gt/yr)')
