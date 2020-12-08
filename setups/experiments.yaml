@@ -8,7 +8,7 @@ experiments:
     tauc_slippery_grounding_lines: yes
     config_override: ./pism_config.nc
     
-   CESM_PD_lowalbedo_20km:
+  CESM_PD_lowalbedo_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
     ocean: "{{oceans.flo-calving-th}}"
