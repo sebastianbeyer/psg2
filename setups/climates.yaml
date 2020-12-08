@@ -66,6 +66,20 @@ climates:
     surface.pdd.factor_snow: 0.0032
     surface.pdd.refreeze: 0.6
     
+  pdd-factor_ice-study:
+  # this does also scale precip with Temp via precip adjustment: scale
+  # more compact this way
+    atmosphere: given,elevation_change
+    atmosphere_given_period: 1
+    temp_lapse_rate: 0
+    surface: pdd
+    precip_adjustment: scale
+    surface.pdd.air_temp_all_precip_as_rain: 275.15
+    surface.pdd.air_temp_all_precip_as_snow: 273.15
+    surface.pdd.factor_ice: [0.005, 0.006, 0.007, 0.008, 0.009, 0.010, 0.011, 0.012]
+    surface.pdd.factor_snow: 0.0033
+    surface.pdd.refreeze: 0.6
+    
 
   pdd-lapserate-study:
   # this does also scale precip with Temp via precip adjustment: scale
