@@ -260,6 +260,7 @@ def sequence_command(args):
     """This runs when the sequence command is given on the command line
     """
     name = args.seq
+    runfile_template = args.runfile_template
     all_setups, _ = load_yaml(paths.setups_path)
     sequence = flatten_dict(all_setups['sequences'][name])
     sequence = add_name_to_setup(sequence, name)
@@ -293,10 +294,16 @@ def sequence_command(args):
 
         for setup in setup_list:
             runscripts.append(setup['runscript_file'])
-            write_to_file(setup, 'PISM_bash.sh')
+            write_to_file(setup, runfile_template)
             make_file_executable(setup)
 
     write_allruns(runscripts)
+    if args.copy_config:
+        print("copied config file into experiment folder")
+        out_file = setup['runscript_file']
+        out_dir = os.path.dirname(out_file)
+        copyfile(os.path.join(paths.pism_config_path, 'pism_config.nc'),
+                 os.path.join(out_dir, 'pism_config.nc'))
 
 
 parser = argparse.ArgumentParser(description='Generate pism runs')
@@ -320,6 +327,12 @@ parser_generate.set_defaults(func=generate_command)
 
 parser_generate = subparsers.add_parser('sequence')
 parser_generate.add_argument('seq')
+parser_generate.add_argument('--runfile_template',
+                             default="PISM_bash.sh",
+                             choices=["PISM_bash.sh", "PISM_SLURM.sh"])
+parser_generate.add_argument('--copy_config',
+                             action='store_true',
+                             help="copy the default config into experiment folder")
 parser_generate.set_defaults(func=sequence_command)
 
 parser_rsync = subparsers.add_parser('rsync')
