@@ -9,6 +9,21 @@ experiments:
     config_override: ./pism_config.nc
     
     
+    
+  CESM_PDD_factor_snow-study_20km_wicecalc:
+    i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
+    grid: "{{grids.GRN-20km}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    ocean_th_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
+    front_retreat_file: $WORK/datasets/oceankillmask/GRN_ocean_kill_20km.nc
+    atmosphere_given_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
+    atmosphere_lapse_rate_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_referenceHeight_GRN20km.nc
+    pdd_sd_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
+    pdd_sd_period: 1
+    climate: "{{climates.pdd-factor_snow-study}}"
+    icedynamic: "{{icedynamics.SeaRise}}"
+    time: "{{times.50k-out100-more}}"
+    
   CESM_PD_lowalbedo_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -22,6 +37,8 @@ experiments:
     climate: "{{climates.pdd-simple-wprecipscale}}"
     icedynamic: "{{icedynamics.SeaRise}}"
     time: "{{times.50k-out100-more}}"
+    
+    
     
   CESM_PDD_factor_ice-study_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
