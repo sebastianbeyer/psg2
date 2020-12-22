@@ -1,4 +1,16 @@
 climates:
+
+  pdd-norefreeze:
+    atmosphere: given,elevation_change
+    atmosphere_given_period: 1
+    temp_lapse_rate: 5
+    surface: pdd
+    surface.pdd.air_temp_all_precip_as_rain: 275.15
+    surface.pdd.air_temp_all_precip_as_snow: 273.15
+    surface.pdd.factor_ice: 0.0088
+    surface.pdd.factor_snow: 0.0033
+    surface.pdd.refreeze: 0.0
+
   pdd-simple:
     atmosphere: given,elevation_change
     atmosphere_given_period: 1
