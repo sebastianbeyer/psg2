@@ -58,6 +58,8 @@ def rsync_command(args):
         path = '/work/sbeyer'
     if remote == 'hlrn':
         path = "/scratch/usr/hbkbasti"
+    if remote == 'hlrng':
+        path = "/scratch/usr/hbkbasti"
     source = remote + ":" + path + "/psg2/experiments/" + experiment + "/*.nc"
     destination = os.path.join(paths.exp_envs_path, experiment)
     subprocess.call(["rsync", "--progress", "-avzh", source, destination])
@@ -339,7 +341,7 @@ parser_rsync = subparsers.add_parser('rsync')
 parser_rsync.add_argument('experiment')
 parser_rsync.add_argument('--remote',
                           default='k19',
-                          choices=['k19', 'cluster', 'hlrn'])
+                          choices=['k19', 'cluster', 'hlrn', 'hlrng'])
 parser_rsync.set_defaults(func=rsync_command)
 
 args = parser.parse_args()
