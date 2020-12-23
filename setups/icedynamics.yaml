@@ -1,7 +1,7 @@
 icedynamics:
 
   lowMinPhi:
-    sia_e: 3
+    sia_e: 5
     ssa_e: 1
     pseudo_plastic_q: 0.4
     till_effective_fraction_overburden: 0.02
