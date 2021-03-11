@@ -1,0 +1,19 @@
+experiments:
+
+
+  ANT_CESM_PD_lowalbedo_20km:
+    i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM_ant/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_initmip16.nc
+    grid: "{{grids.initmip-16km}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    ocean_th_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM_ant/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_initmip16.nc
+    front_retreat_file: $WORK/datasets/oceankillmask/bedmap2_oceankill_initmip16km.nc
+    atmosphere_given_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM_ant/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_initmip16.nc
+    atmosphere_lapse_rate_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM_ant/CESM1.2_CAM5_CN_PD_lowalbedo_referenceHeight_initmip16km.nc
+    pdd_sd_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM_ant/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_initmip16.nc
+    pdd_sd_period: 1
+    climate: "{{climates.pdd-norefreeze}}"
+    icedynamic: "{{icedynamics.lowMinPhi}}"
+    time: "{{times.50k-out100-more}}"
+
+
+
