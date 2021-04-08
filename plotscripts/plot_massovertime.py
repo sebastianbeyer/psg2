@@ -25,6 +25,10 @@ expName = ncName.split('/')[-1]
 data = Dataset(ncName, mode='r')
 x = data.variables['x'][:]
 y = data.variables['y'][:]
+time = data.variables['time'][:]
+
+# convert to years
+time = time / (60*60*24*365) / 1000
 
 thk = data.variables['thk'][:]
 # vel = data.variables['velsurf_mag'][:]
@@ -85,7 +89,8 @@ trendline = np.arange(0, nTimesteps) * trend[0] + trend[1]
 
 fig, (ax2) = plt.subplots(1, 1, sharey=False, figsize=(6, 6))
 
-ax2.plot(iceVolume, label='Ice volume (Mio km^3)')
+ax2.plot(time, iceVolume, label='Ice volume (Mio km^3)')
+ax2.set_xlabel("Time in ka")
 # ax2.plot(trendline, label='trend')
 
 
