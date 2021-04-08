@@ -1,5 +1,16 @@
 climates:
 
+  pdd-mprange:
+    atmosphere: given,elevation_change
+    atmosphere_given_period: 1
+    temp_lapse_rate: 5
+    surface: pdd
+    surface.pdd.air_temp_all_precip_as_rain: 275.15
+    surface.pdd.air_temp_all_precip_as_snow: 271.15
+    surface.pdd.factor_ice: 0.019
+    surface.pdd.factor_snow: 0.005
+    surface.pdd.refreeze: 0.1
+
   pdd-norefreeze:
     atmosphere: given,elevation_change
     atmosphere_given_period: 1
@@ -21,7 +32,7 @@ climates:
     surface.pdd.factor_ice: 0.0088
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.6
-    
+
   pdd-simple-nolapserate:
     atmosphere: given
     atmosphere_given_period: 1
@@ -32,8 +43,8 @@ climates:
     surface.pdd.factor_ice: 0.0088
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.6
-    
-    
+
+
   SeaRise-wprecipscale:
     atmosphere:  searise_greenland
     atmosphere_given_period: 1
@@ -45,7 +56,7 @@ climates:
     surface.pdd.factor_ice: 0.0088
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.6
-    
+
   pdd-simple-wprecipscale:
     atmosphere: given,elevation_change
     atmosphere_given_period: 1
@@ -57,14 +68,14 @@ climates:
     surface.pdd.factor_ice: 0.0088
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.6
-  
-  
-    
+
+
+
   smb-given:
     surface: given
     surface_given_period: 1
-    
-    
+
+
   pdd-ziemen:
     atmosphere: given,elevation_change
     atmosphere_given_period: 1
@@ -77,7 +88,7 @@ climates:
     surface.pdd.factor_ice: 0.0129
     surface.pdd.factor_snow: 0.0032
     surface.pdd.refreeze: 0.6
-    
+
   pdd-factor_snow-study:
     atmosphere: given,elevation_change
     atmosphere_given_period: 1
@@ -88,7 +99,7 @@ climates:
     surface.pdd.factor_ice: 0.008
     surface.pdd.factor_snow: [0.003, 0.005, 0.007, 0.009, 0.011, 0.015]
     surface.pdd.refreeze: 0.0
-    
+
   pdd-factor_ice-study:
   # this does also scale precip with Temp via precip adjustment: scale
   # more compact this way
@@ -102,7 +113,7 @@ climates:
     surface.pdd.factor_ice: [0.005, 0.006, 0.007, 0.008, 0.009, 0.010, 0.011, 0.012]
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.6
-    
+
 
   pdd-lapserate-study:
   # this does also scale precip with Temp via precip adjustment: scale
@@ -117,7 +128,7 @@ climates:
     surface.pdd.factor_ice: 0.0088
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.6
-    
+
   pdd-precip_shift-study:
     atmosphere: given,elevation_change
     atmosphere_given_period: 1
@@ -130,8 +141,8 @@ climates:
     surface.pdd.factor_ice: 0.0088
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.6
-    
-    
+
+
   pdd-simple-deltaT:
     atmosphere: given,delta_T
     atmosphere_given_period: 1
@@ -142,8 +153,8 @@ climates:
     surface.pdd.factor_ice: 0.0088
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.6
-    
-    
+
+
   pdd-std-21ka-CAM5:
     atmosphere: given
     atmosphere_given_period: 1
@@ -154,7 +165,7 @@ climates:
     surface.pdd.factor_ice: 0.0088
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.6
-    
+
   pdd-std-21ka-CAM4_CN:
     atmosphere: given
     atmosphere_given_period: 1
@@ -165,7 +176,7 @@ climates:
     surface.pdd.factor_ice: 0.0088
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.6
-    
+
   pdd-std-21ka-CAM5_CN:
     atmosphere: given
     atmosphere_given_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_CAM5_CN_21ka_NHEM_40km.nc
@@ -178,7 +189,7 @@ climates:
     surface.pdd.factor_ice: 0.0088
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.6
-    
+
   pdd-std-PI-CAM5:
     atmosphere: given
     atmosphere_given_file: /mnt/wrk4/sbeyer/datasets/cesm/CESM_CAM5_PI_NHEM_40km.nc
@@ -191,7 +202,7 @@ climates:
     surface.pdd.factor_ice: 0.0088
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.6
-    
+
 
 
   pdd-std-00ka:
@@ -206,7 +217,7 @@ climates:
     surface.pdd.factor_ice: 0.0088
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.6
-    
+
   pdd-std-00ka-era5-20km:
     atmosphere: given
     atmosphere_given_file: /mnt/wrk4/sbeyer/datasets/era5/ERA5_NHEM_20km.nc
@@ -218,7 +229,7 @@ climates:
     surface.pdd.factor_ice: 0.0088
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.6
-    
+
   pdd-std-00ka-era5-40km:
     atmosphere: given
     atmosphere_given_file: /mnt/wrk4/sbeyer/datasets/era5/ERA5_NHEM_40km.nc
