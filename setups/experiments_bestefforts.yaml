@@ -1,6 +1,6 @@
 experiments:
 
-  BE_CESM_38ka_20km_pddprange:
+  BE_CESM_35ka_20km_pddprange:
     i: $WORK/automaticIceData/output/CESM_35ka_STD_NHEM20km/CESM_35ka_STD_NHEM20km_4PISM_.nc
     grid: "{{grids.GRN-20km}}"
     ocean: "{{oceans.flo-calving-th}}"
