@@ -1,0 +1,17 @@
+experiments:
+
+  BE_CESM_35ka_20km_pddprange:
+    i: $WORK/automaticIceData/output/GLACIALINDEX_STD_NHEM20km/GLACIALINDEX_STD_NHEM20km_4PISM_.nc
+    grid: "{{grids.NHEM-20km-100vert}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    ocean_th_file: $WORK/automaticIceData/output/GLACIALINDEX_STD_NHEM20km/GLACIALINDEX_STD_NHEM20km_4PISM_.nc
+    front_retreat_file: $WORK/datasets/oceankillmask/NHEM_ocean_kill_20km.nc
+    atmosphere_given_file: $WORK/automaticIceData/output/GLACIALINDEX_STD_NHEM20km/GLACIALINDEX_STD_NHEM20km_4PISM_.nc
+    climate: "{{climates.pdd-index-mprange}}"
+    icedynamic: "{{icedynamics.lowMinPhi}}"
+    time: "{{times.50k-out100-more}}"
+    atmosphere_index_file: $WORK/automaticIceData/output/GLACIALINDEX_STD_NHEM20km/GLACIALINDEX_STD_NHEM20km_4PISM_.nc
+
+
+
+
