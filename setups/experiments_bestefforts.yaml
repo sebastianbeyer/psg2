@@ -2,7 +2,7 @@ experiments:
 
   BE_CESM_35ka_20km_pddprange:
     i: $WORK/automaticIceData/output/CESM_35ka_STD_NHEM20km/CESM_35ka_STD_NHEM20km_4PISM_.nc
-    grid: "{{grids.GRN-20km}}"
+    grid: "{{grids.NHEM-20km-100vert}}"
     ocean: "{{oceans.flo-calving-th}}"
     ocean_th_file: $WORK/automaticIceData/output/CESM_35ka_STD_NHEM20km/CESM_35ka_STD_NHEM20km_4PISM_.nc
     front_retreat_file: $WORK/datasets/oceankillmask/GRN_ocean_kill_20km.nc
