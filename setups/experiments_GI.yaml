@@ -1,9 +1,11 @@
 experiments:
 
   GI_CESM_20km_pddprange:
+    # glacial index is currently only for atmosphere, ocean is simply using
+    # deltaT now
     i: $WORK/automaticIceData/output/GLACIALINDEX_STD_NHEM20km/GLACIALINDEX_STD_NHEM20km_4PISM_.nc
     grid: "{{grids.NHEM-20km-100vert}}"
-    ocean: "{{oceans.flo-calving-th}}"
+    ocean: "{{oceans.flo-calving-th-deltaT}}"
     ocean_th_file: $WORK/automaticIceData/output/GLACIALINDEX_STD_NHEM20km/GLACIALINDEX_STD_NHEM20km_4PISM_.nc
     front_retreat_file: $WORK/datasets/oceankillmask/NHEM_ocean_kill_20km.nc
     atmosphere_given_file: $WORK/automaticIceData/output/GLACIALINDEX_STD_NHEM20km/GLACIALINDEX_STD_NHEM20km_4PISM_.nc
@@ -11,6 +13,11 @@ experiments:
     icedynamic: "{{icedynamics.lowMinPhi}}"
     time: "{{times.50k-out100-more}}"
     atmosphere_index_file: $WORK/automaticIceData/output/GLACIALINDEX_STD_NHEM20km/GLACIALINDEX_STD_NHEM20km_4PISM_.nc
+    sea_level: constant,delta_sl
+    ocean_delta_sl_file: $WORK/automaticIceData/input/sealevel/pism_dSL_Imbrie2006.nc
+    ocean_delta_T_file: $WORK/automaticIceData/input/sealevel/pism_dT.nc
+    bed_def: lc
+
 
 
 
