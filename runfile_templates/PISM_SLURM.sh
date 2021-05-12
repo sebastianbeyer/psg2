@@ -10,6 +10,7 @@
 #SBATCH --tasks-per-node={{ ntasks }}
 #SBATCH --time={{ timelimit }}
 #SBATCH --mail-user={{ mail }}
+#SBATCH --account={{ account }}
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
