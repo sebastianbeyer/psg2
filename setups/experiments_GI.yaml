@@ -17,6 +17,11 @@ experiments:
     ocean_delta_sl_file: $WORK/automaticIceData/input/sealevel/pism_dSL_Imbrie2006.nc
     ocean_delta_T_file: $WORK/automaticIceData/input/sealevel/pism_dT.nc
     bed_def: lc
+    # hrln
+    partition: standard96
+    timelimit: "12:00:00"
+    nnodes: 8
+    pism_module: pism-sbeyer
 
 
 

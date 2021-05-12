@@ -1,5 +1,24 @@
 experiments:
 
+  PMIP_MPI_LGM_20km:
+    i: $WORK/automaticIceData/output/MPI_LGM_STD_NHEM20km/MPI_LGM_STD_NHEM20km_4PISM_.nc
+    grid: "{{grids.NHEM-20km-100vert}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    ocean_th_file: $WORK/automaticIceData/output/MPI_LGM_STD_NHEM20km/MPI_LGM_STD_NHEM20km_4PISM_.nc
+    front_retreat_file: $WORK/datasets/oceankillmask/NHEM_ocean_kill_20km.nc
+    atmosphere_given_file: $WORK/automaticIceData/output/MPI_LGM_STD_NHEM20km/MPI_LGM_STD_NHEM20km_4PISM_.nc
+    atmosphere_lapse_rate_file: $WORK/automaticIceData/output/MPI_LGM_STD_NHEM20km/PMIP_MPI_ESM_atmo_atmo_NHEM_20km.nc_ref_height.nc
+    pdd_sd_file: $WORK/automaticIceData/output/MPI_LGM_STD_NHEM20km/MPI_LGM_STD_NHEM20km_4PISM_.nc
+    pdd_sd_period: 1
+    climate: "{{climates.pdd-mprange}}"
+    icedynamic: "{{icedynamics.lowMinPhi}}"
+    time: "{{times.50k-out100-more}}"
+    # hrln
+    partition: standard96
+    timelimit: "12:00:00"
+    nnodes: 8
+    pism_module: pism-sbeyer
+
   BE_CESM_35ka_20km_pddprange:
     i: $WORK/automaticIceData/output/CESM_35ka_STD_NHEM20km/CESM_35ka_STD_NHEM20km_4PISM_.nc
     grid: "{{grids.NHEM-20km-100vert}}"
@@ -13,6 +32,11 @@ experiments:
     climate: "{{climates.pdd-mprange}}"
     icedynamic: "{{icedynamics.lowMinPhi}}"
     time: "{{times.50k-out100-more}}"
+    # hrln
+    partition: standard96
+    timelimit: "12:00:00"
+    nnodes: 8
+    pism_module: pism-sbeyer
 
   BE_CESM_PD_lowalbedo_20km_mprange:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
@@ -27,6 +51,7 @@ experiments:
     climate: "{{climates.pdd-mprange}}"
     icedynamic: "{{icedynamics.lowMinPhi}}"
     time: "{{times.50k-out100-more}}"
+
 
   BE_CESM_PD_lowalbedo_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc

@@ -114,7 +114,8 @@ def add_filenames_to_tree(name, tree, stagetag=""):
 def append_tree_options_to_file(tree, out_file):
     """
     """
-    noWriteKeys = ["name", "n_procs", "runscript_file", "setup"]
+    noWriteKeys = ["name", "n_procs", "runscript_file", "setup", "partition",
+                   "timelimit", "nnodes", "ntasks", "account", "pism_module", "mail"]
     with open(out_file, 'a') as f:
         for key, value in tree.items():
             if key not in noWriteKeys:
@@ -136,8 +137,14 @@ def write_to_file(tree, templateName):
     basedata = {
         'exp_name': tree['name'],
         'psg_revision': version.git_version(),
-        'n_procs': tree['n_procs'],
-        'timestamp': asctime()
+        'timestamp': asctime(),
+        'partition': tree['partition'],
+        'timelimit': tree['timelimit'],
+        'nnodes': tree['nnodes'],
+        'ntasks': tree['ntasks'],
+        'account': tree['account'],
+        'pism_module': tree['pism_module'],
+        'mail': tree['mail'],
     }
     template = env.get_template(templateName)
     template.stream(basedata).dump(out_file)

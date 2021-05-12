@@ -5,18 +5,18 @@
 ## {{ exp_name }}
 ##
 
-#SBATCH --partition=standard96:test
-#SBATCH --nodes=1
-#SBATCH --tasks-per-node=96
-#SBATCH --time=1:00:00
-#SBATCH --mail-user=sbeyer@marum.de
+#SBATCH --partition={{ partition }}
+#SBATCH --nodes={{ nnodes }}
+#SBATCH --tasks-per-node={{ ntasks }}
+#SBATCH --time={{ timelimit }}
+#SBATCH --mail-user={{ mail }}
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
 #SBATCH --mail-type=FAIL
 #SBATCH --output={{ exp_name }}.%j
 
 
-spack load pism/ndfqrej # intel version of pism (no parallel netcdf yet...)
+spack load {{ pism_module }}
 
 srun pismr \
 
