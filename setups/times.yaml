@@ -7,6 +7,8 @@ times:
     ye: 0
     ts_times: '10'
     extra_times: '100'
+    extra_vars: 'thk,usurf,velsurf_mag,bwat,velbase_mag,mask,climatic_mass_balance,effective_precipitation,effective_air_temp,temppabase,'
+    
 
   50k-out100:
     ys: -50000

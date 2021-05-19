@@ -11,7 +11,7 @@ experiments:
     atmosphere_given_file: $WORK/automaticIceData/output/GLACIALINDEX_STD_NHEM20km/GLACIALINDEX_STD_NHEM20km_4PISM_.nc
     climate: "{{climates.pdd-index-mprange}}"
     icedynamic: "{{icedynamics.lowMinPhi}}"
-    time: "{{times.120k-out100-more}}"
+    time: "{{times.120k-out100}}"
     atmosphere_index_file: $WORK/automaticIceData/output/GLACIALINDEX_STD_NHEM20km/GLACIALINDEX_STD_NHEM20km_4PISM_.nc
     sea_level: constant,delta_sl
     ocean_delta_sl_file: $WORK/automaticIceData/input/sealevel/pism_dSL_Imbrie2006.nc
