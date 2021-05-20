@@ -23,7 +23,23 @@ experiments:
     nnodes: 8
     pism_module: pism-sbeyer
 
-
-
-
-
+  anomaly_CESM_20km_pddprange:
+    # 
+    i: $WORK/automaticIceData/output/CESM_PD_STD_NHEM20km/CESM_PD_STD_NHEM20km_4PISM_.nc
+    grid: "{{grids.NHEM-20km-100vert}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    ocean_th_file: $WORK/automaticIceData/output/CESM_PD_STD_NHEM20km/CESM_PD_STD_NHEM20km_4PISM_.nc
+    front_retreat_file: $WORK/datasets/oceankillmask/NHEM_ocean_kill_20km.nc
+    atmosphere_given_file: $WORK/automaticIceData/CESM_PD_STD_NHEM20km/CESM_PD_STD_NHEM20km_4PISM_.nc
+    climate: "{{climates.pdd-anomaly-mprange}}"
+    icedynamic: "{{icedynamics.lowMinPhi}}"
+    time: "{{times.120k-out100}}"
+    sea_level: constant,delta_sl
+    ocean_delta_sl_file: $WORK/automaticIceData/input/sealevel/pism_dSL_Imbrie2006.nc
+    atmosphere_delta_T_file: $WORK/automaticIceData/input/sealevel/pism_dT.nc
+    bed_def: lc
+    # hrln
+    partition: standard96
+    timelimit: "12:00:00"
+    nnodes: 8
+    pism_module: pism-sbeyer
