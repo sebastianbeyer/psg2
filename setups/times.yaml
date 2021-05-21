@@ -9,6 +9,14 @@ times:
     extra_times: '100'
     extra_vars: 'thk,usurf,velsurf_mag,bwat,velbase_mag,mask,climatic_mass_balance,effective_precipitation,effective_air_temp,temppabase,'
     
+  120k-to35ka-out100-thermalonly:
+    ys: -120000
+    ye: -35000
+    ts_times: '10'
+    extra_times: '1000'
+    extra_vars: 'thk,velsurf_mag,climatic_mass_balance,effective_precipitation,effective_air_temp,temppabase,'
+    no_mass: yes
+    
 
   50k-out100:
     ys: -50000

@@ -1,0 +1,41 @@
+experiments:
+
+
+  BE_CESM_35ka_20km_pddprange:
+    i: $WORK/automaticIceData/output/CESM_35ka_STD_NHEM20km/CESM_35ka_STD_NHEM20km_4PISM_.nc
+    grid: "{{grids.NHEM-20km-100vert}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    ocean_th_file: $WORK/automaticIceData/output/CESM_35ka_STD_NHEM20km/CESM_35ka_STD_NHEM20km_4PISM_.nc
+    front_retreat_file: $WORK/datasets/oceankillmask/NHEM_ocean_kill_20km.nc
+    atmosphere_given_file: $WORK/automaticIceData/output/CESM_35ka_STD_NHEM20km/CESM_35ka_STD_NHEM20km_4PISM_.nc
+    atmosphere_lapse_rate_file: $WORK/automaticIceData/output/CESM_35ka_STD_NHEM20km/CESM_35ka_CAM5_CN_atmo_atmo_NHEM_20km.nc_ref_height.nc
+    pdd_sd_file: $WORK/automaticIceData/output/CESM_35ka_STD_NHEM20km/CESM_35ka_STD_NHEM20km_4PISM_.nc
+    pdd_sd_period: 1
+    climate: "{{climates.pdd-mprange}}"
+    icedynamic: "{{icedynamics.lowMinPhi}}"
+    time: "{{times.50k-out100-more}}"
+    # hrln
+    partition: standard96
+    timelimit: "12:00:00"
+    nnodes: 8
+    pism_module: pism-sbeyer
+
+  CESM_35ka_anomaly_thermal_spinup:
+    i: $WORK/psg2/experiments/BE_CESM_35ka_20km_pddprange/BE_CESM_35ka_20km_pddprange_backup.nc
+    grid: "{{grids.NHEM-20km-100vert}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    ocean_th_file: $WORK/automaticIceData/output/CESM_35ka_STD_NHEM20km/CESM_35ka_STD_NHEM20km_4PISM_.nc
+    front_retreat_file: $WORK/datasets/oceankillmask/NHEM_ocean_kill_20km.nc
+    atmosphere_given_file: $WORK/automaticIceData/output/CESM_35ka_STD_NHEM20km/CESM_35ka_STD_NHEM20km_4PISM_.nc
+    atmosphere_lapse_rate_file: $WORK/automaticIceData/output/CESM_35ka_STD_NHEM20km/CESM_35ka_CAM5_CN_atmo_atmo_NHEM_20km.nc_ref_height.nc
+    pdd_sd_file: $WORK/automaticIceData/output/CESM_35ka_STD_NHEM20km/CESM_35ka_STD_NHEM20km_4PISM_.nc
+    pdd_sd_period: 1
+    climate: "{{climates.pdd-mprange}}"
+    icedynamic: "{{icedynamics.lowMinPhi}}"
+    time: "{{times.120k-to35ka-out100-thermalonly}}"
+    # hrln
+    partition: standard96
+    timelimit: "12:00:00"
+    nnodes: 8
+    pism_module: pism-sbeyer
+
