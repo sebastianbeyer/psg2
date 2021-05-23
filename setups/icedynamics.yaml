@@ -1,5 +1,14 @@
 icedynamics:
 
+  schannwell_ssa_e-study:
+  # they use sia_e=1, but they do have 10km resolution
+    sia_e: 3
+    ssa_e: [1, 2, 3, 4, 5,]
+    pseudo_plastic_q: 0.4
+    till_effective_fraction_overburden: 0.02
+    topg_to_phi: 15,40,-300,700
+    
+
   lowMinPhi:
     sia_e: 5
     ssa_e: 1
