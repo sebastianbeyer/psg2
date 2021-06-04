@@ -24,7 +24,7 @@ experiments:
 
 Then you run
 
-`./src/main.py generate NEW_EXPERIMENT`
+`./src/main.py generate NEW_EXPERIMENT --copy_config`
 
 and a runfile will be generated using a template (runfile templates are in
 `./runfile_templates`).
@@ -56,9 +56,11 @@ experiments:
     till_effective_fraction_overburden: 0.02
 ```
 
-Now you can `./src/main.py generate SM_LGM_firsttry`
+Now you can `./src/main.py generate SM_LGM_firsttry --copy_config`
 
 And you should get a runfile in `./experiments/SB_LGM_firsttry/`
+
+Now you can just cd into that directory and execute the runfile.
 
 
 ## submodules
