@@ -143,6 +143,7 @@ def write_to_file(tree, templateName):
         'nnodes': tree['nnodes'],
         'ntasks': tree['ntasks'],
         'account': tree['account'],
+        'n_procs': tree['n_procs'],
         'pism_module': tree['pism_module'],
         'mail': tree['mail'],
     }
