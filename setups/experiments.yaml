@@ -7,7 +7,7 @@ experiments:
     tauc_slippery_grounding_lines: yes
     config_override: ./pism_config.nc
     # k19
-    nprocs: 32
+    n_procs: 32
     # hrln
     partition: standard96:test
     timelimit: "1:00:00"
