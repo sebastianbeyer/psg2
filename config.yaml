@@ -5,6 +5,6 @@ template_default: PISM_SLURM.sh
 # mail address where slurm notes are sent to
 slurm_mail: sbeyer@marum.de
 # if you use automaticData to generate the setup files, put its path here
-automaticData_path: /home/sebi/Nextcloud/palmod/datasets/automaticData
+automaticData_path: /home/sebi/Nextcloud/palmod/datasets/automaticIceData
 
 

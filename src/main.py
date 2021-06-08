@@ -247,6 +247,29 @@ def is_study(setup_list):
     return len(setup_list) > 1
 
 
+def handle_automaticData(tree, config):
+    if "automaticData" in tree:
+        print("found automaticData in setup")
+    # need to have a default set of stuff to include and then have an
+    # option with "+this ~that"...
+    # also need to check which variables are found automatically and which
+    # need explicit mention
+    # ocean_th_file
+    # front_retreat_file
+    # atmosphere_given_file
+    # atmosphere_lapse_rate_file
+    # pdd_sd_file
+    tree["i"] = os.path.join(config["automaticData_path"], "output",
+                             tree["automaticData"], tree["automaticData"] + "_4PISM_.nc")
+    # check if file exists
+    print(tree["i"])
+    my_file = Path(tree["i"])
+    if my_file.is_file():
+        print("jo it exists!")
+    else:
+        print("no it does not exist")
+
+
 def generate_command(args):
     """This runs when the generate command is given on the command line
     """
@@ -259,6 +282,8 @@ def generate_command(args):
 
     single_setup = merge_with_default(all_setups, single_setup)
     add_filenames_to_tree(name, single_setup)
+
+    handle_automaticData(single_setup, psg2_config)
 
     # set some stuff from config file
     if "slurm_mail" in psg2_config:
