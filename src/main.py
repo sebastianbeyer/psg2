@@ -66,6 +66,12 @@ def rsync_command(args):
     # rsync --progress -avzh k19:/work/sbeyer/psg/experiments/LGM-NHEM-40km-constant-siaEtuning/ts_LGM-NHEM-40km-constant-siaEtuning_sia_e_3.nc .
 
 
+def load_psg2_config():
+    stream = open(paths.psg2_config_file, 'r')
+    psg2_config = load(stream, Loader=Loader)
+    return psg2_config
+
+
 def flatten_dict(d):
     """
     This makes the dict of dicts for the model description into a single
@@ -244,8 +250,9 @@ def is_study(setup_list):
 def generate_command(args):
     """This runs when the generate command is given on the command line
     """
+    psg2_config = load_psg2_config()
+    print(psg2_config)
     name = args.exp
-    runfile_template = args.runfile_template
     all_setups, _ = load_yaml(paths.setups_path)
     single_setup = flatten_dict(all_setups['experiments'][name])
     single_setup = add_name_to_setup(single_setup, name)
@@ -253,12 +260,20 @@ def generate_command(args):
     single_setup = merge_with_default(all_setups, single_setup)
     add_filenames_to_tree(name, single_setup)
 
+    # set some stuff from config file
+    if "slurm_mail" in psg2_config:
+        single_setup["mail"] = psg2_config["slurm_mail"]
+    if "template_default" in psg2_config:
+        runfile_template = psg2_config["template_default"]
+    else:
+        runfile_template = args.runfile_template
+
     # check parameter studies
     setup_list = handle_parameter_study(single_setup)
     for setup in setup_list:
         write_to_file(setup, runfile_template)
         make_file_executable(setup)
-    if args.copy_config:
+    if args.copy_config or psg2_config['always_copy_config']:
         print("copied config file into experiment folder")
         out_file = setup['runscript_file']
         out_dir = os.path.dirname(out_file)
