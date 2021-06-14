@@ -262,15 +262,25 @@ def handle_automaticData(tree, config):
         for key in ["i", "front_retreat_file", ]:
             tree[key] = os.path.join(config["automaticData_path"], "output",
                                      tree["automaticData"], tree["automaticData"] + "_4PISM_.nc")
+            # check if file exists
+            print(tree[key])
+            my_file = Path(tree[key])
+            if my_file.is_file():
+                print("File in automaticData exists!")
+            else:
+                print(
+                    "WARNING: File {} (from automaticData does not exist!)".format(tree[key]))
+
         tree["atmosphere_lapse_rate_file"] = os.path.join(config["automaticData_path"], "output",
                                                           tree["automaticData"], tree["automaticData"] + "_4PISM_.nc_ref_height.nc")
         # check if file exists
-        print(tree["i"])
-        my_file = Path(tree["i"])
+        print(tree["atmosphere_lapse_rate_file"])
+        my_file = Path(tree["atmosphere_lapse_rate_file"])
         if my_file.is_file():
-            print("jo it exists!")
+            print("File in automaticData exists!")
         else:
-            print("no it does not exist")
+            print(
+                "WARNING: File {} (from automaticData does not exist!)".format(tree["atmosphere_lapse_rate_file"]))
 
 
 def generate_command(args):
