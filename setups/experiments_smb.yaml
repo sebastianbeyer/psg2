@@ -42,7 +42,7 @@ experiments:
     
     
     
-    RACMO2_test-PDD:
+  RACMO2_test-PDD:
     # no temp std deviation in this case :(
     i: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
     front_retreat_file: $WORK/datasets/oceankillmask/GRN_ocean_kill_20km.nc
@@ -67,7 +67,7 @@ experiments:
     nnodes: 1
     pism_module: pism-debm
     
-    RACMO2_test-debm:
+  RACMO2_test-debm:
     # no temp std deviation in this case :(
     i: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
     front_retreat_file: $WORK/datasets/oceankillmask/GRN_ocean_kill_20km.nc
