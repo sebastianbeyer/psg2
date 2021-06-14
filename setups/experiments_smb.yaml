@@ -85,3 +85,19 @@ experiments:
     nnodes: 1
     pism_module: pism-debm
     
+  RACMO2_test-smbgiven:
+    # no temp std deviation in this case :(
+    i: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
+    front_retreat_file: $WORK/datasets/oceankillmask/GRN_ocean_kill_20km.nc
+    surface: given
+    surface_given_period: 1
+    surface_given_file: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
+    grid: "{{grids.GRN-20km}}"
+    icedynamic: "{{icedynamics.lowMinPhi}}"
+    time: "{{times.50k-out100-smb}}"
+    # hrln
+    partition: standard96:test
+    timelimit: "1:00:00"
+    nnodes: 1
+    pism_module: pism-debm
+    
