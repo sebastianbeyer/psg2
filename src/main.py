@@ -298,6 +298,21 @@ def generate_command(args):
 
     handle_automaticData(single_setup, psg2_config)
 
+    if args.climate_test:
+        print("Generating runscript which only tests climate forcing...")
+        single_setup["ys"] = 0
+        single_setup["ye"] = 1
+
+        single_setup["ts_times"] = '0:monthly:1'
+        single_setup["extra_times"] = '0:monthly:1'
+        single_setup["test_climate_models"] = 'yes'
+        single_setup["no_mass"] = 'yes'
+        single_setup["extra_vars"] = 'usurf, climatic_mass_balance, effective_precipitation, effective_air_temp, air_temp_snapshot, surface_accumulation_flux, surface_melt_flux, surface_runoff_flux, surface_layer_thickness'
+        single_setup["o"] = single_setup["o"] + "_climate_test.nc"
+        single_setup["extra_file"] = single_setup["extra_file"] + \
+            "_climate_test.nc"
+        single_setup["ts_file"] = single_setup["ts_file"] + "_climate_test.nc"
+
     # set some stuff from config file
     if "slurm_mail" in psg2_config:
         single_setup["mail"] = psg2_config["slurm_mail"]
@@ -386,6 +401,9 @@ parser_generate.add_argument('--runfile_template',
 parser_generate.add_argument('--copy_config',
                              action='store_true',
                              help="copy the default config into experiment folder")
+parser_generate.add_argument('--climate_test',
+                             action='store_true',
+                             help="only do a single year test with no dynamics.")
 parser_generate.set_defaults(func=generate_command)
 
 parser_generate = subparsers.add_parser('sequence')
