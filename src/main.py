@@ -312,6 +312,8 @@ def generate_command(args):
         single_setup["extra_file"] = single_setup["extra_file"] + \
             "_climate_test.nc"
         single_setup["ts_file"] = single_setup["ts_file"] + "_climate_test.nc"
+        single_setup['runscript_file'] = single_setup['runscript_file'] + \
+            "_climate_test.sh"
 
     # set some stuff from config file
     if "slurm_mail" in psg2_config:
