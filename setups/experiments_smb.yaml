@@ -49,7 +49,6 @@ experiments:
     atmosphere_given_file: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
     atmosphere_lapse_rate_file: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km_refHeight.nc
     grid: "{{grids.GRN-20km}}"
-    ocean: "{{oceans.flo-calving-th}}"
     atmosphere: given,elevation_change
     atmosphere_given_period: 1
     temp_lapse_rate: 5
@@ -74,7 +73,6 @@ experiments:
     atmosphere_given_file: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
     atmosphere_lapse_rate_file: $WORK/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km_refHeight.nc
     grid: "{{grids.GRN-20km}}"
-    ocean: "{{oceans.flo-calving-th}}"
     atmosphere: given,elevation_change
     atmosphere_given_period: 1
     temp_lapse_rate: 5
