@@ -307,7 +307,7 @@ def generate_command(args):
         single_setup["extra_times"] = '0:monthly:1'
         single_setup["test_climate_models"] = 'yes'
         single_setup["no_mass"] = 'yes'
-        single_setup["extra_vars"] = 'usurf, climatic_mass_balance, effective_precipitation, effective_air_temp, air_temp_snapshot, surface_accumulation_flux, surface_melt_flux, surface_runoff_flux, surface_layer_thickness'
+        single_setup["extra_vars"] = 'usurf,climatic_mass_balance,effective_precipitation,effective_air_temp,air_temp_snapshot,surface_accumulation_flux,surface_melt_flux,surface_runoff_flux,surface_layer_thickness'
         single_setup["o"] = single_setup["o"] + "_climate_test.nc"
         single_setup["extra_file"] = single_setup["extra_file"] + \
             "_climate_test.nc"
