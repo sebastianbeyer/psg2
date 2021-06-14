@@ -2,9 +2,9 @@ experiments:
 
   debm_zeitz:
     # 
+    automaticData: "CESM_PD_STD_GRN20km"
     grid: "{{grids.GRN-20km}}"
     ocean: "{{oceans.flo-calving-th}}"
-    automaticData: "CESM_PD_STD_GRN20km"
     atmosphere: given,elevation_change
     atmosphere_given_period: 1
     temp_lapse_rate: 5
@@ -19,14 +19,8 @@ experiments:
     
   debm_zeitz_pddctrl:
     # 
-    i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
-    ocean_th_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
-    front_retreat_file: $WORK/datasets/oceankillmask/GRN_ocean_kill_20km.nc
-    atmosphere_given_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
-    atmosphere_lapse_rate_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_referenceHeight_GRN20km.nc
-    pdd_sd_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
+    automaticData: "CESM_PD_STD_GRN20km"
     pdd_sd_period: 1
-    #
     grid: "{{grids.GRN-20km}}"
     ocean: "{{oceans.flo-calving-th}}"
     atmosphere: given,elevation_change
@@ -46,8 +40,3 @@ experiments:
     nnodes: 1
     pism_module: pism-debm
     
-    #i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
-    #ocean_th_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
-    #front_retreat_file: $WORK/datasets/oceankillmask/GRN_ocean_kill_20km.nc
-    #atmosphere_given_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
-    #atmosphere_lapse_rate_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_referenceHeight_GRN20km.nc
