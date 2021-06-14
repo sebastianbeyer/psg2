@@ -48,6 +48,9 @@ runoff = data.variables['surface_runoff_flux'][:]
 layer = data.variables['surface_layer_thickness'][:]
 usurf = data.variables['surface_layer_thickness'][:]
 
+air_temp = air_temp_e
+air_temp = air_temp - 273.15
+
 # # print(data.variables['air_temp'].units)
 # if data.variables['air_temp_snapshot'].units == 'Kelvin':
 #     modeltemp = modeltemp - 273
@@ -94,7 +97,7 @@ print("mean smb")
 print(CMBsinglemean)
 
 ##############################
-shrink = 0.2
+shrink = 0.9
 
 axCMB = axes[0]
 axCMB.coastlines(resolution='110m')
@@ -106,10 +109,11 @@ imgCMB = axCMB.imshow(CMBmean,
                       norm=norm,
                       origin='lower',
                       )
-cbCMB = plt.colorbar(imgCMB, ax=axCMB, shrink=shrink)
+cbCMB = plt.colorbar(imgCMB, ax=axCMB, shrink=shrink, orientation="horizontal")
 cbCMB.set_label('climatic mass balance')
 
-axCMB.set_title(title + "\n" + "mean: {:6.0f}".format(CMBsinglemean))
+# axCMB.set_title(title + "\n" + "mean: {:6.0f}".format(CMBsinglemean))
+fig.suptitle(title + "\n" + "mean: {:6.0f}".format(CMBsinglemean))
 #####################################################
 
 axAir_temp = axes[1]
@@ -119,11 +123,12 @@ imgAir_temp = axAir_temp.imshow(air_temp_mean,
                                 transform=crs,
                                 extent=netcdfExtend,
                                 cmap=cmap_temp,
-                                vmin=223,
-                                vmax=283,
+                                vmin=-30,
+                                vmax=30,
                                 origin='lower',
                                 )
-cbAir_temp = plt.colorbar(imgAir_temp, ax=axAir_temp, shrink=shrink)
+cbAir_temp = plt.colorbar(imgAir_temp, ax=axAir_temp,
+                          shrink=shrink, orientation="horizontal")
 cbAir_temp.set_label('air temperature (K)')
 
 
@@ -137,7 +142,8 @@ imgPrecip = axPrecip.imshow(precip_mean,
                             norm=norm,
                             origin='lower',
                             )
-cbPrecip = plt.colorbar(imgPrecip, ax=axPrecip, shrink=shrink)
+cbPrecip = plt.colorbar(imgPrecip, ax=axPrecip,
+                        shrink=shrink, orientation="horizontal")
 cbPrecip.set_label('precipitation')
 
 axAccum = axes[3]
@@ -150,20 +156,22 @@ imgAccum = axAccum.imshow(accum_mean,
                           norm=norm,
                           origin='lower',
                           )
-cbAccum = plt.colorbar(imgAccum, ax=axAccum, shrink=shrink)
+cbAccum = plt.colorbar(imgAccum, ax=axAccum,
+                       shrink=shrink, orientation="horizontal")
 cbAccum.set_label('accumulation')
 
 axMelt = axes[4]
 axMelt.coastlines(resolution='110m')
 axMelt.set_extent(extent, crs=crs)
-imgMelt = axMelt.imshow(melt_mean,
+imgMelt = axMelt.imshow(-melt_mean,
                         transform=crs,
                         extent=netcdfExtend,
                         cmap=cmap,
                         norm=norm,
                         origin='lower',
                         )
-cbMelt = plt.colorbar(imgMelt, ax=axMelt, shrink=shrink)
+cbMelt = plt.colorbar(imgMelt, ax=axMelt, shrink=shrink,
+                      orientation="horizontal")
 cbMelt.set_label('melt')
 # ax.gridlines()
 plt.tight_layout()
