@@ -13,6 +13,7 @@ from netCDF4 import Dataset
 
 parser = argparse.ArgumentParser()
 parser.add_argument('modelfile', type=str)
+parser.add_argument('--targetsmb', type=str, default="none")
 args = parser.parse_args()
 
 secInMonth = 60*60*24*30
@@ -32,6 +33,11 @@ def get_extend(x, y):
     """Read extend from x and y variables and return extend to be used with cartopy"""
     return [x[0], x[-1], y[0], y[-1]]
 
+
+if args.targetsmb != "none":
+    data = Dataset(args.targetsmb, mode='r')
+    cmb_target = data.variables['climatic_mass_balance'][:]
+    data.close()
 
 data = Dataset(args.modelfile, mode='r')
 x = data.variables['x'][:]
@@ -77,10 +83,16 @@ cmap = cm.get_cmap('RdBu')
 
 title = args.modelfile.split('/')[-1]
 
-fig, axes = plt.subplots(1,
-                         5,
-                         subplot_kw={'projection': crs},
-                         figsize=(16, 8))
+if args.targetsmb != "none":
+    fig, axes = plt.subplots(1,
+                             6,
+                             subplot_kw={'projection': crs},
+                             figsize=(16, 8))
+else:
+    fig, axes = plt.subplots(1,
+                             5,
+                             subplot_kw={'projection': crs},
+                             figsize=(16, 8))
 # print(axes)
 
 
@@ -173,6 +185,22 @@ imgMelt = axMelt.imshow(-melt_mean,
 cbMelt = plt.colorbar(imgMelt, ax=axMelt, shrink=shrink,
                       orientation="horizontal")
 cbMelt.set_label('melt')
+
+if args.targetsmb != "none":
+    CMBmeantgt = np.mean(cmb_target, axis=0)
+    axsmbtgt = axes[5]
+    axsmbtgt.coastlines(resolution='110m')
+    axsmbtgt.set_extent(extent, crs=crs)
+    imgsmbtgt = axsmbtgt.imshow(CMBmeantgt,
+                              transform=crs,
+                              extent=netcdfExtend,
+                              cmap=cmap,
+                              norm=norm,
+                              origin='lower',
+                              )
+    cbsmbtgt = plt.colorbar(imgsmbtgt, ax=axsmbtgt, shrink=shrink,
+                            orientation="horizontal")
+    cbsmbtgt.set_label('target SMB form RACMO')
 # ax.gridlines()
 plt.tight_layout()
 plt.savefig(args.modelfile + "_CMB" + ".png", dpi=300)
