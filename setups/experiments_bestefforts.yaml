@@ -46,7 +46,7 @@ experiments:
     pdd_sd_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
     pdd_sd_period: 1
     climate: "{{climates.pdd-norefreeze}}"
-    icedynamic: "{{icedynamics.lowMinPhi}}"
+    icedynamic: "{{icedynamics.bestEffort}}"
     time: "{{times.50k-out100-more}}"
 
   BE_CESM_LGM_wocean_20km:
