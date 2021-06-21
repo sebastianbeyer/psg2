@@ -121,7 +121,7 @@ def append_tree_options_to_file(tree, out_file):
     """
     """
     noWriteKeys = ["name", "n_procs", "runscript_file", "setup", "partition",
-                   "timelimit", "nnodes", "ntasks", "account", "pism_module", "mail"]
+                   "timelimit", "nnodes", "ntasks", "account", "pism_module", "mail", "automaticData"]
     with open(out_file, 'a') as f:
         for key, value in tree.items():
             if key not in noWriteKeys:
