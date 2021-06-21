@@ -89,7 +89,8 @@ imgVel = axVel.imshow(
     cmap=cmap_GRN,
     origin='lower',
 )
-cbVel = plt.colorbar(imgVel, ax=axVel, ticks=255*(t - t[0])/(t[-1] - t[0]), shrink=0.8)
+cbVel = plt.colorbar(imgVel, ax=axVel, ticks=255 *
+                     (t - t[0])/(t[-1] - t[0]), shrink=0.8)
 cbVel.ax.set_yticklabels(tickval)
 cbVel.set_label('Ice Surface Velocity (m/yr)')
 
@@ -100,7 +101,8 @@ imgVelBase = axVelBase.imshow(vel_base_scaled,
                               extent=netcdfExtend,
                               cmap=cmap_GRN,
                               origin='lower',)
-cbVelBase = plt.colorbar(imgVelBase, ax=axVelBase, ticks=255*(t - t[0])/(t[-1] - t[0]), shrink=0.8)
+cbVelBase = plt.colorbar(imgVelBase, ax=axVelBase,
+                         ticks=255*(t - t[0])/(t[-1] - t[0]), shrink=0.8)
 cbVelBase.ax.set_yticklabels(tickval)
 cbVelBase.set_label('Ice Basal Velocity(m/yr)')
 
@@ -114,7 +116,7 @@ imgSlide = axSlide.imshow(sliding,
                           vmin=0,
                           vmax=100)
 cbSlide = plt.colorbar(imgSlide, ax=axSlide, shrink=0.8)
-cbSlide.set_label('Ice Velocity (m/yr)')
+cbSlide.set_label('Percentage of total surface velocity due to basal sliding')
 
 axVelBase.set_title(title)
 
