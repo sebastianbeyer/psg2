@@ -5,6 +5,8 @@ experiments:
     timestep_hit_multiples: 1
     options_left: yes
     tauc_slippery_grounding_lines: yes
+    stress_balance: ssa+sia
+    pseudo_plastic: YES
     config_override: ./pism_config.nc
     # k19
     n_procs: 32
