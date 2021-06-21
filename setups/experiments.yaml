@@ -20,6 +20,27 @@ experiments:
     mail: sbeyer@marum.de
     
     
+  CESM_lowalbedo_seariseparams:
+    automaticData: "CESM_PD_STD_GRN20km"
+    grid: "{{grids.GRN-20km}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    atmosphere: given,elevation_change
+    atmosphere_given_period: 1
+    temp_lapse_rate: 5
+    surface: pdd
+    surface.pdd.air_temp_all_precip_as_rain: 275.15
+    surface.pdd.air_temp_all_precip_as_snow: 273.15
+    surface.pdd.factor_ice: 0.0088
+    surface.pdd.factor_snow: 0.0033
+    surface.pdd.refreeze: 0.0
+    icedynamic: "{{icedynamics.SeaRise}}"
+    time: "{{times.50k-out100-smb}}"
+    # hrln
+    partition: standard96:test
+    timelimit: "1:00:00"
+    nnodes: 1
+    pism_module: pism-sbeyer@debm
+    
     
   CESM_PDD_factor_snow-study_20km_wicecalc:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
