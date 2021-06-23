@@ -259,7 +259,8 @@ def handle_automaticData(tree, config):
     # atmosphere_given_file
     # atmosphere_lapse_rate_file
     # pdd_sd_file
-        for key in ["i", "front_retreat_file", ]:
+    # WARNING: this will fail if there is no pdd_sd in the file!! @TODO: fixme!
+        for key in ["i", "front_retreat_file", "pdd_sd_file"]:
             tree[key] = os.path.join(config["automaticData_path"], "output",
                                      tree["automaticData"], tree["automaticData"] + "_4PISM_.nc")
             # check if file exists
