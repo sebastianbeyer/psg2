@@ -8,6 +8,11 @@ experiments:
     icedynamic: "{{icedynamics.bestEffort}}"
     time: "{{times.50k-out100-more}}"
     automaticData: "CESM_PD_bedmachine_GRN20km_remapcon"
+    # hrln
+    partition: standard96:test
+    timelimit: "1:00:00"
+    nnodes: 1
+    pism_module: pism-sbeyer@debm
 
   CTRL_CESM_PD_GRN_bedmachine_bil:
     grid: "{{grids.SeaRise-20km}}"
@@ -17,6 +22,11 @@ experiments:
     icedynamic: "{{icedynamics.bestEffort}}"
     time: "{{times.50k-out100-more}}"
     automaticData: "CESM_PD_bedmachine_GRN20km_remapbil"
+    # hrln
+    partition: standard96:test
+    timelimit: "1:00:00"
+    nnodes: 1
+    pism_module: pism-sbeyer@debm
 
   CTRL_CESM_PD_GRN_etopo_con:
     grid: "{{grids.SeaRise-20km}}"
@@ -26,6 +36,11 @@ experiments:
     icedynamic: "{{icedynamics.bestEffort}}"
     time: "{{times.50k-out100-more}}"
     automaticData: CESM_PD_STD_GRN20km_remapcon
+    # hrln
+    partition: standard96:test
+    timelimit: "1:00:00"
+    nnodes: 1
+    pism_module: pism-sbeyer@debm
 
   CTRL_CESM_PD_GRN_etopo_bil:
     grid: "{{grids.SeaRise-20km}}"
@@ -35,6 +50,11 @@ experiments:
     icedynamic: "{{icedynamics.bestEffort}}"
     time: "{{times.50k-out100-more}}"
     automaticData: CESM_PD_STD_GRN20km_remapbil
+    # hrln
+    partition: standard96:test
+    timelimit: "1:00:00"
+    nnodes: 1
+    pism_module: pism-sbeyer@debm
 
 
 
