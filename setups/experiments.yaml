@@ -18,8 +18,8 @@ experiments:
     account: hbk00080
     pism_module: pism/ndfqrej
     mail: sbeyer@marum.de
-    
-    
+
+
   CESM_lowalbedo_seariseparams:
     automaticData: "CESM_PD_STD_GRN20km"
     grid: "{{grids.GRN-20km}}"
@@ -40,8 +40,8 @@ experiments:
     timelimit: "1:00:00"
     nnodes: 1
     pism_module: pism-sbeyer@debm
-    
-    
+
+
   CESM_PDD_factor_snow-study_20km_wicecalc:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -55,7 +55,7 @@ experiments:
     climate: "{{climates.pdd-factor_snow-study}}"
     icedynamic: "{{icedynamics.SeaRise}}"
     time: "{{times.50k-out100-more}}"
-    
+
   CESM_PD_lowalbedo_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_lowalbedo_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_lowalbedo_4PISM_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -69,9 +69,9 @@ experiments:
     climate: "{{climates.pdd-simple-wprecipscale}}"
     icedynamic: "{{icedynamics.SeaRise}}"
     time: "{{times.50k-out100-more}}"
-    
-    
-    
+
+
+
   CESM_PDD_factor_ice-study_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -83,7 +83,7 @@ experiments:
     climate: "{{climates.pdd-factor_ice-study}}"
     icedynamic: "{{icedynamics.nature-highres}}"
     time: "{{times.test-pdd}}"
-    
+
   CESM_PDreal_wocean_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PD_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_PD_4PISM_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -97,7 +97,7 @@ experiments:
     climate: "{{climates.pdd-simple-wprecipscale}}"
     icedynamic: "{{icedynamics.SeaRise}}"
     time: "{{times.50k-out100-more}}"
-    
+
   RACMO2_PDD_siaestudy_20km:
   # no temp std deviation in this case :(
   # so use the CESM data for that...
@@ -127,10 +127,10 @@ experiments:
     pdd_sd_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
     pdd_sd_period: 1
     climate: "{{climates.pdd-simple}}"
-    icedynamic: "{{icedynamics.flowlawstudy_q}}"
+    icedynamic: "{{icedynamics.flowlawstudy_q_siae3}}"
     time: "{{times.50k-out100-more}}"
-    
-    
+
+
   SeaRise_20km:
     i: $WORK/datasets/SeaRise/pism_Greenland_5km_v1.1.nc
     grid: "{{grids.SeaRise-20km}}"
@@ -140,7 +140,7 @@ experiments:
     surface_given_file: $WORK/datasets/SeaRise/pism_Greenland_5km_v1.1.nc
     icedynamic: "{{icedynamics.SeaRise}}"
     time: "{{times.50k-out100-smb}}"
-    
+
   SeaRise_PDD_20km:
     i: $WORK/datasets/SeaRise/pism_Greenland_5km_v1.1.nc
     grid: "{{grids.SeaRise-20km}}"
@@ -149,8 +149,8 @@ experiments:
     climate: "{{climates.SeaRise-wprecipscale}}"
     icedynamic: "{{icedynamics.SeaRise}}"
     time: "{{times.50k-out100-more}}"
-    
-    
+
+
   SeaRise_PDD_CESMclimate_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/SeaRise_pism_5km_v1.1_CESM.nc
     grid: "{{grids.SeaRise-20km}}"
@@ -159,7 +159,7 @@ experiments:
     climate: "{{climates.SeaRise-wprecipscale}}"
     icedynamic: "{{icedynamics.SeaRise}}"
     time: "{{times.50k-out100-more}}"
-    
+
   SeaRise_PDD_CESMclimate_CESMtemp_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/SeaRise_pism_5km_v1.1_CESM.nc
     grid: "{{grids.SeaRise-20km}}"
@@ -168,7 +168,7 @@ experiments:
     climate: "{{climates.pdd-simple-nolapserate}}"
     icedynamic: "{{icedynamics.SeaRise}}"
     time: "{{times.50k-out100-more}}"
-    
+
   CESM_LGM_wocean_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_LGM_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_LGM_4PISM_NHEM20km.nc
     grid: "{{grids.NHEM-20km-100vert}}"
@@ -182,7 +182,7 @@ experiments:
     climate: "{{climates.pdd-simple}}"
     icedynamic: "{{icedynamics.nature-highres}}"
     time: "{{times.50k-out100}}"
-    
+
   RACMO2_PDD_20km:
   # no temp std deviation in this case :(
   # so use the CESM data for that...
@@ -198,9 +198,9 @@ experiments:
     climate: "{{climates.pdd-simple}}"
     icedynamic: "{{icedynamics.SeaRise}}"
     time: "{{times.50k-out100-more}}"
-    
-  
-    
+
+
+
   CESM_PDD_lapserate-study_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -212,8 +212,8 @@ experiments:
     climate: "{{climates.pdd-lapserate-study}}"
     icedynamic: "{{icedynamics.nature-highres}}"
     time: "{{times.test-pdd}}"
-    
-    
+
+
   CESM_PDD_lapserate_precip_shift-study_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -225,8 +225,8 @@ experiments:
     climate: "{{climates.pdd-precip_shift-study}}"
     icedynamic: "{{icedynamics.nature-highres}}"
     time: "{{times.test-pdd}}"
-    
-    
+
+
   CESM_test-PDD_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -238,7 +238,7 @@ experiments:
     climate: "{{climates.pdd-simple}}"
     icedynamic: "{{icedynamics.nature-highres}}"
     time: "{{times.test-pdd}}"
-    
+
   CESM_PDDziemen_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -252,7 +252,7 @@ experiments:
     climate: "{{climates.pdd-ziemen}}"
     icedynamic: "{{icedynamics.nature-highres}}"
     time: "{{times.50k-out100-more}}"
-    
+
   CESM_test-PDDziemen_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -264,7 +264,7 @@ experiments:
     climate: "{{climates.pdd-ziemen}}"
     icedynamic: "{{icedynamics.nature-highres}}"
     time: "{{times.test-pdd}}"
-    
+
   CESM_PD_qstudy_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -278,7 +278,7 @@ experiments:
     climate: "{{climates.pdd-simple-wprecipscale}}"
     icedynamic: "{{icedynamics.param-study-q}}"
     time: "{{times.50k-out100-more}}"
-    
+
   CESM_PD_qstudy_20km_oceankill:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -292,7 +292,7 @@ experiments:
     climate: "{{climates.pdd-simple-wprecipscale}}"
     icedynamic: "{{icedynamics.param-study-q}}"
     time: "{{times.50k-out100-more}}"
-    
+
   CESM_PD_niu_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -305,7 +305,7 @@ experiments:
     climate: "{{climates.pdd-simple-wprecipscale}}"
     icedynamic: "{{icedynamics.niu2019}}"
     time: "{{times.50k-out100-more}}"
-    
+
   CESM_PD_wocean_seariseTemp_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -319,7 +319,7 @@ experiments:
     climate: "{{climates.SeaRise-wprecipscale}}"
     icedynamic: "{{icedynamics.SeaRise}}"
     time: "{{times.50k-out100-more}}"
-    
+
   CESM_PD_wocean_20km:
     i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_PI_Brian/CESM_for_PISM/CESM_PD_4PISM_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -333,7 +333,7 @@ experiments:
     climate: "{{climates.pdd-simple-wprecipscale}}"
     icedynamic: "{{icedynamics.SeaRise}}"
     time: "{{times.50k-out100-more}}"
-    
+
   Searise_on_GRN20:
     i: $WORK/datasets/Greenland/Present_Day_Greenland/Searise_4PISM_GRN20_filled.nc
     grid: "{{grids.GRN-20km}}"
@@ -344,7 +344,7 @@ experiments:
     surface_given_file: /mnt/wrk4/sbeyer/datasets/Greenland/Present_Day_Greenland/Searise_4PISM_GRN20_filled.nc
     icedynamic: "{{icedynamics.nature-highres}}"
     time: "{{times.50k-out100-smb}}"
-    
+
   RACMO2_20km-SMBgiven-withCESMOcean_meltcoast:
     # melt all where initial ice is 0
     i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km_meltcoast.nc
@@ -356,7 +356,7 @@ experiments:
     surface_given_file: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km_meltcoast.nc
     icedynamic: "{{icedynamics.nature-highres}}"
     time: "{{times.50k-out100-smb}}"
-    
+
   RACMO2_20km-SMBgiven-withCESMOcean_flowlawstudy_ssan:
     i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -367,7 +367,7 @@ experiments:
     surface_given_file: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
     icedynamic: "{{icedynamics.flowlawstudy_ssan}}"
     time: "{{times.50k-out100-smb}}"
-    
+
   RACMO2_20km-SMBgiven-withCESMOcean_flowlawstudy_q:
     i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -376,9 +376,9 @@ experiments:
     front_retreat_file: /mnt/wrk4/sbeyer/datasets/oceankillmask/GRN_ocean_kill_20km.nc
     climate: "{{climates.smb-given}}"
     surface_given_file: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_GRN20km.nc
-    icedynamic: "{{icedynamics.flowlawstudy_q}}"
+    icedynamic: "{{icedynamics.flowlawstudy_q_siae3}}"
     time: "{{times.50k-out100-smb}}"
-    
+
   RACMO2_20km-SMBgiven-withCESMOcean_natureparams:
     i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -389,7 +389,7 @@ experiments:
     surface_given_file: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
     icedynamic: "{{icedynamics.nature-highres}}"
     time: "{{times.50k-out100-smb}}"
-    
+
   RACMO2_20km-SMBgiven-withCESMOcean:
     i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -401,7 +401,7 @@ experiments:
     icedynamic: "{{icedynamics.siae2-q07}}"
     time: "{{times.50k-out100-smb}}"
 
-    
+
   RACMO2_20km-SMBgiven:
     i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -411,7 +411,7 @@ experiments:
     surface_given_file: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
     icedynamic: "{{icedynamics.siae2-q07}}"
     time: "{{times.50k-out100-smb}}"
-    
+
   RACMO2_20km-SMBgiven-calvingtest:
     i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -421,7 +421,7 @@ experiments:
     surface_given_file: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
     icedynamic: "{{icedynamics.siae2-q07}}"
     time: "{{times.50k-out100-smb}}"
-    
+
   RACMO2_20km-SMBgiven-testEigencalving:
     i: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
     grid: "{{grids.GRN-20km}}"
@@ -431,7 +431,7 @@ experiments:
     surface_given_file: /mnt/wrk4/sbeyer/datasets/RACMO2_brice/RACMO2_for_PISM/PISM_RACMO2_20km.nc
     icedynamic: "{{icedynamics.siae2-q07}}"
     time: "{{times.50k-out100-smb}}"
-    
+
   SeaRise_20km-SMBgiven:
     i: /mnt/wrk4/sbeyer/datasets/Greenland/Present_Day_Greenland/Searise_Greenland_4PISM.nc
     grid: "{{grids.GRN-20km}}"
