@@ -1,8 +1,8 @@
-# new tuning experiments with the CESM lowalbedo forcing and bedmachinev4 dataset
+# new tuning experiments with the CESM lowalbedo forcing and etopo dataset
 
 experiments:
 
-  CESM_bedmachine_siaestudy:
+  CESM_etopo_siaestudy:
     grid: "{{grids.SeaRise-20km}}"
     ocean: "{{oceans.flo-calving-th}}"
     pdd_sd_period: 1
@@ -17,7 +17,7 @@ experiments:
     pism_module: pism-sbeyer@debm
 
 
-  CESM_bedmachine_ssaestudy_siae5:
+  CESM_etopo_ssaestudy_siae5:
     grid: "{{grids.SeaRise-20km}}"
     ocean: "{{oceans.flo-calving-th}}"
     pdd_sd_period: 1
@@ -31,7 +31,7 @@ experiments:
     nnodes: 1
     pism_module: pism-sbeyer@debm
 
-  CESM_bedmachine_ssaestudy_siae3:
+  CESM_etopo_ssaestudy_siae3:
     grid: "{{grids.SeaRise-20km}}"
     ocean: "{{oceans.flo-calving-th}}"
     pdd_sd_period: 1
@@ -45,7 +45,7 @@ experiments:
     nnodes: 1
     pism_module: pism-sbeyer@debm
 
-  CESM_bedmachine_qstudy_siae5:
+  CESM_etopo_qstudy_siae5:
     grid: "{{grids.SeaRise-20km}}"
     ocean: "{{oceans.flo-calving-th}}"
     pdd_sd_period: 1
@@ -59,7 +59,7 @@ experiments:
     nnodes: 1
     pism_module: pism-sbeyer@debm
 
-  CESM_bedmachine_qstudy_siae3:
+  CESM_etopo_qstudy_siae3:
     grid: "{{grids.SeaRise-20km}}"
     ocean: "{{oceans.flo-calving-th}}"
     pdd_sd_period: 1
