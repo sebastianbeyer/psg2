@@ -8,7 +8,7 @@ times:
     ts_times: '10'
     extra_times: '100'
     extra_vars: 'thk,usurf,velsurf_mag,bwat,velbase_mag,mask,climatic_mass_balance,effective_precipitation,effective_air_temp,temppabase,'
-    
+
   120k-to35ka-out100-thermalonly:
     ys: -120000
     ye: -35000
@@ -16,7 +16,7 @@ times:
     extra_times: '1000'
     extra_vars: 'thk,velsurf_mag,climatic_mass_balance,effective_precipitation,effective_air_temp,temppabase,'
     no_mass: yes
-    
+
 
   50k-out100:
     ys: -50000
@@ -29,8 +29,8 @@ times:
     ye: 0
     ts_times: '10'
     extra_times: '100'
-    extra_vars: 'thk,velsurf_mag,bwat,velbase_mag,mask,climatic_mass_balance,tendency_of_ice_amount_due_to_flow,tendency_of_ice_amount_due_to_surface_mass_flux,tendency_of_ice_amount,surface_accumulation_flux,effective_precipitation,effective_air_temp,temppabase,ice_surface_temp,air_temp_snapshot'
-     
+    extra_vars: 'thk,velsurf_mag,tillwat,velbase_mag,mask,climatic_mass_balance,tendency_of_ice_amount_due_to_flow,tendency_of_ice_amount_due_to_surface_mass_flux,tendency_of_ice_amount,surface_accumulation_flux,effective_precipitation,effective_air_temp,temppabase,ice_surface_temp,air_temp_snapshot'
+
   50k-out100-smb:
     # like 50k-out100-more but with some vars removed because they are not there in smb forced runs
     ys: -50000
@@ -38,8 +38,8 @@ times:
     ts_times: '10'
     extra_times: '100'
     extra_vars: 'thk,velsurf_mag,bwat,velbase_mag,mask,climatic_mass_balance,tendency_of_ice_amount_due_to_flow,tendency_of_ice_amount_due_to_surface_mass_flux,tendency_of_ice_amount,temppabase,ice_surface_temp'
-     
-    
+
+
   10k-out10:
     ys: -10000
     ye: 0
@@ -54,7 +54,7 @@ times:
     extra_times: '0:monthly:1'
     test_climate_models: yes
     no_mass: yes
-    
+
   test-pdd:
     ys: 0
     ye: 1
@@ -64,26 +64,26 @@ times:
     no_mass: yes
     extra_vars: 'usurf,climatic_mass_balance,effective_precipitation,effective_air_temp,air_temp_snapshot,surface_accumulation_flux,surface_melt_flux,surface_runoff_flux,surface_layer_thickness'
 
-    
+
   spinup-relax-1year:
     ys: 0
     ye: 1
     ts_times: '0:daily:1'
     extra_times: '0:monthly:1'
-    
+
   spinup-125ka:
     ys: -125000
     ye: 0
     ts_times: 'yearly'
     extra_times: '1000'
-    
+
   50k-out100-more-from0:
     ys: 0
     ye: 50000
     ts_times: '10'
     extra_times: '100'
     extra_vars: 'thk,velsurf_mag,bwat,bmelt,velbase_mag,mask,climatic_mass_balance,tendency_of_ice_amount_due_to_flow,tendency_of_ice_amount_due_to_surface_mass_flux,tendency_of_ice_amount,surface_accumulation_flux,effective_precipitation,effective_air_temp,temppabase,ice_surface_temp,air_temp_snapshot'
-     
+
 
   test-threeyear:
     ys: 0
