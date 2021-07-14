@@ -15,7 +15,7 @@ experiments:
     partition: standard96
     timelimit: "6:00:00"
     nnodes: 1
-    pism_module: pism-sbeyer
+    pism_module: pism-sbeyer@debm
 
   RACMO_bedmachine_siaestudy:
     grid: "{{grids.SeaRise-20km}}"
@@ -28,7 +28,7 @@ experiments:
     partition: standard96
     timelimit: "6:00:00"
     nnodes: 1
-    pism_module: pism-sbeyer
+    pism_module: pism-sbeyer@debm
 
 
   RACMO_bedmachine_ssaestudy_siae5:
@@ -43,7 +43,7 @@ experiments:
     partition: standard96
     timelimit: "6:00:00"
     nnodes: 1
-    pism_module: pism-sbeyer
+    pism_module: pism-sbeyer@debm
 
   RACMO_bedmachine_ssaestudy_siae3:
     grid: "{{grids.SeaRise-20km}}"
@@ -57,7 +57,7 @@ experiments:
     partition: standard96
     timelimit: "6:00:00"
     nnodes: 1
-    pism_module: pism-sbeyer
+    pism_module: pism-sbeyer@debm
 
   RACMO_bedmachine_qstudy_siae5:
     grid: "{{grids.SeaRise-20km}}"
@@ -71,7 +71,7 @@ experiments:
     partition: standard96
     timelimit: "6:00:00"
     nnodes: 1
-    pism_module: pism-sbeyer
+    pism_module: pism-sbeyer@debm
     
   RACMO_bedmachine_qstudy_siae3:
     grid: "{{grids.SeaRise-20km}}"
@@ -85,7 +85,7 @@ experiments:
     partition: standard96
     timelimit: "6:00:00"
     nnodes: 1
-    pism_module: pism-sbeyer
+    pism_module: pism-sbeyer@debm
 
 
 
