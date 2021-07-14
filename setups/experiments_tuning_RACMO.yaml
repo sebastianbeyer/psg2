@@ -1,0 +1,95 @@
+# new tuning experiments with the RACMO
+
+experiments:
+
+
+  RACMO_bedmachine_siaonly:
+    # like in Aschwanden nature paper, only use sia to get best siae
+    grid: "{{grids.SeaRise-20km}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    climate: "{{climates.pdd-bestRACMOmatch}}"
+    icedynamic: "{{icedynamics.flowlawstudy_siae_siaonly}}"
+    time: "{{times.50k-out100-more}}"
+    automaticData: "RACMO_PD_bedmachine_GRN20km"
+    # hrln
+    partition: standard96
+    timelimit: "6:00:00"
+    nnodes: 1
+    pism_module: pism-sbeyer
+
+  RACMO_bedmachine_siaestudy:
+    grid: "{{grids.SeaRise-20km}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    climate: "{{climates.pdd-bestRACMOmatch}}"
+    icedynamic: "{{icedynamics.flowlawstudy_siae}}"
+    time: "{{times.50k-out100-more}}"
+    automaticData: "RACMO_PD_bedmachine_GRN20km"
+    # hrln
+    partition: standard96
+    timelimit: "6:00:00"
+    nnodes: 1
+    pism_module: pism-sbeyer
+
+
+  CESM_etopo_ssaestudy_siae5:
+    grid: "{{grids.SeaRise-20km}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    pdd_sd_period: 1
+    climate: "{{climates.pdd-bestRACMOmatch}}"
+    icedynamic: "{{icedynamics.flowlawstudy_ssae_siae5}}"
+    time: "{{times.50k-out100-more}}"
+    automaticData: "RACMO_PD_bedmachine_GRN20km"
+    # hrln
+    partition: standard96
+    timelimit: "6:00:00"
+    nnodes: 1
+    pism_module: pism-sbeyer
+
+  CESM_etopo_ssaestudy_siae3:
+    grid: "{{grids.SeaRise-20km}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    pdd_sd_period: 1
+    climate: "{{climates.pdd-bestRACMOmatch}}"
+    icedynamic: "{{icedynamics.flowlawstudy_ssae_siae3}}"
+    time: "{{times.50k-out100-more}}"
+    automaticData: "RACMO_PD_bedmachine_GRN20km"
+    # hrln
+    partition: standard96
+    timelimit: "6:00:00"
+    nnodes: 1
+    pism_module: pism-sbeyer
+
+  CESM_etopo_qstudy_siae5:
+    grid: "{{grids.SeaRise-20km}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    pdd_sd_period: 1
+    climate: "{{climates.pdd-bestRACMOmatch}}"
+    icedynamic: "{{icedynamics.flowlawstudy_q_siae5}}"
+    time: "{{times.50k-out100-more}}"
+    automaticData: "RACMO_PD_bedmachine_GRN20km"
+    # hrln
+    partition: standard96
+    timelimit: "6:00:00"
+    nnodes: 1
+    pism_module: pism-sbeyer
+    
+  CESM_etopo_qstudy_siae3:
+    grid: "{{grids.SeaRise-20km}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    pdd_sd_period: 1
+    climate: "{{climates.pdd-bestRACMOmatch}}"
+    icedynamic: "{{icedynamics.flowlawstudy_q_siae3}}"
+    time: "{{times.50k-out100-more}}"
+    automaticData: "RACMO_PD_bedmachine_GRN20km"
+    # hrln
+    partition: standard96
+    timelimit: "6:00:00"
+    nnodes: 1
+    pism_module: pism-sbeyer
+
+
+
+
+
+
+

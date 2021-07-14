@@ -43,6 +43,20 @@ climates:
     surface.pdd.factor_ice: 0.0088
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.0
+    
+  pdd-bestRACMOmatch:
+    # tested with /home/sebi/Nextcloud/palmod/pdd_tuning/run_pdd_tuning.py
+    # lapse rate has not a real effect here, so this is not good to tune that one
+    # refreeze plays not a huge role, so just use standard
+    atmosphere: given,elevation_change
+    atmosphere_given_period: 1
+    temp_lapse_rate: 5
+    surface: pdd
+    surface.pdd.air_temp_all_precip_as_rain: 275.15
+    surface.pdd.air_temp_all_precip_as_snow: 273.15
+    surface.pdd.factor_ice: 0.010
+    surface.pdd.factor_snow: 0.003
+    surface.pdd.refreeze: 0.6
 
   pdd-simple:
     atmosphere: given,elevation_change

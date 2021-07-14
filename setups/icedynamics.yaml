@@ -50,6 +50,15 @@ icedynamics:
     pseudo_plastic_q: [0.2, 0.4, 0.5, 0.6, 0.7, 0.8]
     topg_to_phi: 5,40,-700,700
     
+    
+  
+  flowlawstudy_siae_siaonly:
+    sia_e: [1.25, 1.5, 2, 2.5, 3, 4, 5, 7]
+    ssa_e: 1
+    pseudo_plastic_q: 0.6
+    topg_to_phi: 5,40,-700,700
+    stress_balance: sia
+    
   flowlawstudy_siae:
     sia_e: [1.25, 1.5, 2, 2.5, 3, 4, 5, 7]
     ssa_e: 1
