@@ -15,6 +15,7 @@ from himl import ConfigProcessor
 from time import asctime
 import jinja2
 from pathlib import Path
+from netCDF4 import Dataset
 
 import version
 import paths
@@ -250,27 +251,36 @@ def is_study(setup_list):
 def handle_automaticData(tree, config):
     if "automaticData" in tree:
         print("found automaticData in setup")
-    # need to have a default set of stuff to include and then have an
-    # option with "+this ~that"...
-    # also need to check which variables are found automatically and which
-    # need explicit mention
-    # ocean_th_file
-    # front_retreat_file
-    # atmosphere_given_file
-    # atmosphere_lapse_rate_file
-    # pdd_sd_file
-    # WARNING: this will fail if there is no pdd_sd in the file!! @TODO: fixme!
-        for key in ["i", "front_retreat_file", "pdd_sd_file"]:
-            tree[key] = os.path.join(config["automaticData_path"], "output",
-                                     tree["automaticData"], tree["automaticData"] + "_4PISM_.nc")
-            # check if file exists
-            print(tree[key])
-            my_file = Path(tree[key])
-            if my_file.is_file():
-                print("File in automaticData exists!")
-            else:
-                print(
-                    "WARNING: File {} (from automaticData does not exist!)".format(tree[key]))
+        # need to have a default set of stuff to include and then have an
+        # option with "+this ~that"...
+        # also need to check which variables are found automatically and which
+        # need explicit mention
+        # ocean_th_file
+        # front_retreat_file
+        # atmosphere_given_file
+        # atmosphere_lapse_rate_file
+        # pdd_sd_file
+
+        automaticDataFile = os.path.join(config["automaticData_path"], "output",
+                                         tree["automaticData"], tree["automaticData"] + "_4PISM_.nc")
+        # check if file exists
+        my_file = Path(automaticDataFile)
+        if my_file.is_file():
+            print("File in automaticData exists!")
+        else:
+            print(
+                "WARNING: File {} (from automaticData does not exist!)".format(automaticDataFile))
+
+        automaticDataKeys = ["i", "front_retreat_file"]
+        # check if file does contain standard deviation
+        rootgrp = Dataset(automaticDataFile, "r")
+        if "air_temp_sd" in rootgrp.variables:
+            print("air_temp_sd exists, adding this to the keys to set")
+            automaticDataKeys.append("pdd_sd_file")
+        rootgrp.close()
+
+        for key in automaticDataKeys:
+            tree[key] = automaticDataFile
 
         tree["atmosphere_lapse_rate_file"] = os.path.join(config["automaticData_path"], "output",
                                                           tree["automaticData"], tree["automaticData"] + "_4PISM_.nc_ref_height.nc")
