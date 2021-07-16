@@ -28,6 +28,7 @@ def get_extend(x, y):
 
 # the one used in the model
 crs = ccrs.NorthPolarStereo(-45, 70)
+#crs = ccrs.NorthPolarStereo(-39, 71)
 extent = (-6240000, 6240000, -6240000, 6240000)
 
 vminTemp = -10
