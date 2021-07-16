@@ -1,0 +1,58 @@
+experiments:
+
+
+  MIS11_steady-direct-forcing:
+    automaticData: "CESM_MIS11-423k_bedmachine_GRN20km"
+    grid: "{{grids.SeaRise-20km}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    pdd_sd_period: 1
+    climate: "{{climates.pdd-bestRACMOmatch}}"
+    icedynamic: "{{icedynamics.newBestEffort}}"
+    time: "{{times.50k-out100-more}}"
+    # hrln
+    partition: standard96
+    timelimit: "12:00:00"
+    nnodes: 1
+    pism_module: pism-sbeyer@debm
+
+  MIS11_glacialindex_nobiascorrection:
+    grid: "{{grids.SeaRise-20km}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    climate: "{{climates.pdd-index-mprange}}"
+    icedynamic: "{{icedynamics.lowMinPhi}}"
+    time: "{{times.MIS11_spinup}}"
+    i: $WORK/automaticIceData/output/CESM_GLACIALINDEX_MIS11_423ka-21ka_nobiascorrection/CESM_GLACIALINDEX_MIS11_423ka-21ka_nobiascorrection_4PISM_.nc
+    ocean_th_file: $WORK/automaticIceData/output/CESM_GLACIALINDEX_MIS11_423ka-21ka_nobiascorrection/CESM_GLACIALINDEX_MIS11_423ka-21ka_nobiascorrection_4PISM_.nc
+    front_retreat_file: $WORK/automaticIceData/output/CESM_GLACIALINDEX_MIS11_423ka-21ka_nobiascorrection/CESM_GLACIALINDEX_MIS11_423ka-21ka_nobiascorrection_4PISM_.nc
+    atmosphere_given_file: $WORK/automaticIceData/output/CESM_GLACIALINDEX_MIS11_423ka-21ka_nobiascorrection/CESM_GLACIALINDEX_MIS11_423ka-21ka_nobiascorrection_4PISM_.nc
+    atmosphere_index_file: $WORK/automaticIceData/output/CESM_GLACIALINDEX_MIS11_423ka-21ka_nobiascorrection/CESM_GLACIALINDEX_MIS11_423ka-21ka_nobiascorrection_4PISM_.nc
+    # sea_level: constant,delta_sl
+    # ocean_delta_sl_file: $WORK/automaticIceData/input/sealevel/pism_dSL_Imbrie2006.nc
+    bed_def: lc
+    # hrln
+    partition: standard96
+    timelimit: "12:00:00"
+    nnodes: 1
+    pism_module: pism-sbeyer@debm
+
+
+  MIS11_glacialindex_biascorrection:
+    grid: "{{grids.SeaRise-20km}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    climate: "{{climates.pdd-bestRACMOmatch}}"
+    icedynamic: "{{icedynamics.newBestEffort}}"
+    time: "{{times.MIS11_spinup}}"
+    i: $WORK/automaticIceData/output/CESM_GLACIALINDEX_MIS11_423ka-21ka_biascorrection/CESM_GLACIALINDEX_MIS11_423ka-21ka_biascorrection_4PISM_.nc
+    ocean_th_file: $WORK/automaticIceData/output/CESM_GLACIALINDEX_MIS11_423ka-21ka_biascorrection/CESM_GLACIALINDEX_MIS11_423ka-21ka_biascorrection_4PISM_.nc
+    front_retreat_file: $WORK/automaticIceData/output/CESM_GLACIALINDEX_MIS11_423ka-21ka_biascorrection/CESM_GLACIALINDEX_MIS11_423ka-21ka_biascorrection_4PISM_.nc
+    atmosphere_given_file: $WORK/automaticIceData/output/CESM_GLACIALINDEX_MIS11_423ka-21ka_biascorrection/CESM_GLACIALINDEX_MIS11_423ka-21ka_biascorrection_4PISM_.nc
+    atmosphere_index_file: $WORK/automaticIceData/output/CESM_GLACIALINDEX_MIS11_423ka-21ka_biascorrection/CESM_GLACIALINDEX_MIS11_423ka-21ka_biascorrection_4PISM_.nc
+    # sea_level: constant,delta_sl
+    # ocean_delta_sl_file: $WORK/automaticIceData/input/sealevel/pism_dSL_Imbrie2006.nc
+    bed_def: lc
+    # hrln
+    partition: standard96
+    timelimit: "12:00:00"
+    nnodes: 1
+    pism_module: pism-sbeyer@debm
+

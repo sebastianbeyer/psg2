@@ -1,6 +1,14 @@
 times:
   default:
     extra_vars: 'thk,usurf,topg,velsurf_mag,mask,climatic_mass_balance,temppabase,ice_surface_temp,air_temp_snapshot'
+    
+  MIS11_spinup:
+    ys: -488000
+    ye: -423000
+    ts_times: '10'
+    extra_times: '500'
+    extra_vars: 'thk,velsurf_mag,tillwat,velbase_mag,mask,climatic_mass_balance,tendency_of_ice_amount,surface_accumulation_flux,effective_precipitation,effective_air_temp,temppabase,ice_surface_temp,air_temp_snapshot'
+
 
   120k-out100:
     ys: -120000
