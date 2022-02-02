@@ -1,5 +1,13 @@
 icedynamics:
 
+  heinrich:
+    sia_e: 2
+    ssa_e: 1
+    pseudo_plastic_q: 0.4
+    till_effective_fraction_overburden: 0.02
+    topg_to_phi: 15,40,-300,700
+    pseudo_plastic_uthreshold: 3e5
+
   schannwell_ssa_e-study:
   # they use sia_e=1, but they do have 10km resolution
     sia_e: 3
@@ -7,14 +15,14 @@ icedynamics:
     pseudo_plastic_q: 0.4
     till_effective_fraction_overburden: 0.02
     topg_to_phi: 15,40,-300,700
-    
+
   bestEffort:
     sia_e: 5
     ssa_e: 1
     pseudo_plastic_q: 0.4
     till_effective_fraction_overburden: 0.02
     topg_to_phi: 15,30,-300,700
-    
+
   newBestEffort:
     sia_e: 5
     ssa_e: 1
@@ -56,28 +64,28 @@ icedynamics:
     ssa_e: 1
     pseudo_plastic_q: [0.2, 0.4, 0.5, 0.6, 0.7, 0.8]
     topg_to_phi: 5,40,-700,700
-    
-    
-  
+
+
+
   flowlawstudy_siae_siaonly:
     sia_e: [1.25, 1.5, 2, 2.5, 3, 4, 5, 7]
     ssa_e: 1
     pseudo_plastic_q: 0.6
     topg_to_phi: 5,40,-700,700
     stress_balance: sia
-    
+
   flowlawstudy_siae:
     sia_e: [1.25, 1.5, 2, 2.5, 3, 4, 5, 7]
     ssa_e: 1
     pseudo_plastic_q: 0.6
     topg_to_phi: 5,40,-700,700
-    
+
   flowlawstudy_ssae_siae5:
     sia_e: 5
     ssa_e: [1.25, 1.5, 2, 2.5, 3, 4, 5, 7]
     pseudo_plastic_q: 0.6
     topg_to_phi: 5,40,-700,700
-    
+
   flowlawstudy_ssae_siae3:
     sia_e: 3
     ssa_e: [1.25, 1.5, 2, 2.5, 3, 4, 5, 7]
@@ -97,33 +105,33 @@ icedynamics:
     ssa_e: 1
     pseudo_plastic_q: 0.25
     # no direct relation, because older version of pism
-    till_effective_fraction_overburden: 0.05 
+    till_effective_fraction_overburden: 0.05
 
   nature-highres:
     sia_e: 1.25
     ssa_e: 1
     pseudo_plastic_q: 0.6
     topg_to_phi: 5,40,-700,700
-    
-    
+
+
   siae3-q04:
     sia_e: 3
     ssa_e: 1
     pseudo_plastic_q: 0.4
-    
+
   siae2-q07:
     sia_e: 2
     ssa_e: 0.6
     pseudo_plastic_q: 0.75
     till_effective_fraction_overburden: 0.04
     topg_to_phi: 2,45,-500,500
-    
+
 
   param-study-siaE:
     sia_e: [ 1, 2, 3, 4.5, 7 ]
     ssa_e: 1
     pseudo_plastic_q: 0.25
-    
+
   param-study-q:
     sia_e: 3
     ssa_e:  1
