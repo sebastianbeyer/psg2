@@ -1,16 +1,10 @@
 experiments:
 
 
-
   heinrich_CESM_LGM_20km:
-    i: $WORK/datasets/CESM/CESM1.2_CAM5_CN_LGM_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_LGM_4PISM_NHEM20km.nc
+    automaticData: "CESM_LGM_STD_NHEM20km"
     grid: "{{grids.NHEM-20km-100vert}}"
     ocean: "{{oceans.flo-calving-th}}"
-    ocean_th_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_LGM_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_LGM_4PISM_NHEM20km.nc
-    front_retreat_file: $WORK/datasets/oceankillmask/NHEM_ocean_kill_20km.nc
-    atmosphere_given_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_LGM_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_LGM_4PISM_NHEM20km.nc
-    atmosphere_lapse_rate_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_LGM_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_LGM_referenceHeight_NHEM20km.nc
-    pdd_sd_file: $WORK/datasets/CESM/CESM1.2_CAM5_CN_LGM_Ute/CESM_for_PISM/CESM1.2_CAM5_CN_LGM_4PISM_NHEM20km.nc
     pdd_sd_period: 1
     climate: "{{climates.pdd-mprange}}"
     icedynamic: "{{icedynamics.heinrich}}"
@@ -19,7 +13,7 @@ experiments:
     partition: standard96
     timelimit: "12:00:00"
     nnodes: 8
-    pism_module: pism-sbeyer
+    pism_module: pism-sbeyer@debm
 
 
 
