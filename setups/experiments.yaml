@@ -15,7 +15,7 @@ experiments:
     timelimit: "1:00:00"
     nnodes: 1
     ntasks: 96
-    account: hbk00080
+    account: hbk00085
     pism_module: pism/ndfqrej
     mail: sbeyer@marum.de
 
