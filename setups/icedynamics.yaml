@@ -8,7 +8,7 @@ icedynamics:
     topg_to_phi: 15,40,-300,700
     pseudo_plastic_uthreshold: 3e5
 
-  heinrich_schanwell:
+  heinrich_schannwell:
     # from schanwell but also some HEINO-NG experiments
     # this should be used with really low values for tillphi in sliding areas
     sia_e: 2
