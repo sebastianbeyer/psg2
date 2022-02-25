@@ -10,7 +10,10 @@ climates:
     surface.pdd.factor_ice: 0.019
     surface.pdd.factor_snow: 0.005
     surface.pdd.refreeze: 0.1
-    
+    # the next two lines are for PISM 2.
+    surface.pdd.std_dev.periodic: true
+    atmosphere.given.periodic: true
+
   pdd-index-mprange:
     atmosphere: index
     atmosphere_given_period: 1
@@ -21,7 +24,7 @@ climates:
     surface.pdd.factor_ice: 0.019
     surface.pdd.factor_snow: 0.005
     surface.pdd.refreeze: 0.1
-    
+
   pdd-anomaly-mprange:
     atmosphere: given,elevation_change,delta_T
     atmosphere_given_period: 1
@@ -43,7 +46,7 @@ climates:
     surface.pdd.factor_ice: 0.0088
     surface.pdd.factor_snow: 0.0033
     surface.pdd.refreeze: 0.0
-    
+
   pdd-bestRACMOmatch:
     # tested with /home/sebi/Nextcloud/palmod/pdd_tuning/run_pdd_tuning.py
     # lapse rate has not a real effect here, so this is not good to tune that one

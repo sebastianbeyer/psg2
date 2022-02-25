@@ -1,23 +1,23 @@
 oceans:
-  
+
   pik-niu:
     ocean: pik
-    meltfactor_pik: 0.01  
-    
+    meltfactor_pik: 0.01
+
   sealevel_change:
     sea_level: constant,delta_sl
     ocean_delta_sl_file: /dataset/sealevel.nc
-    
+
   calving-std:
     calving: eigen_calving,thickness_calving
     thickness_calving_threshold: 200
-    
+
   pik-default:
     calving: eigen_calving,thickness_calving
     thickness_calving_threshold: 100
     ocean: pik
     meltfactor_pik: 0.01
-    
+
   flo-calving:
     calving: eigen_calving,thickness_calving
     thickness_calving_threshold: 200
@@ -28,7 +28,7 @@ oceans:
     kill_icebergs: yes
     eigen_calving_K: 1e16
     subgl: yes
-    
+
   flo-calving-th:
     calving: eigen_calving,thickness_calving
     thickness_calving_threshold: 200
@@ -39,7 +39,9 @@ oceans:
     kill_icebergs: yes
     eigen_calving_K: 1e16
     subgl: yes
-    
+    # this one is for pism 2
+    ocean.th.periodic: true
+
   flo-calving-th-deltaT:
     calving: eigen_calving,thickness_calving
     thickness_calving_threshold: 200
@@ -50,37 +52,37 @@ oceans:
     kill_icebergs: yes
     eigen_calving_K: 1e16
     subgl: yes
-    
-    
 
-    
+
+
+
   testEigencalving:
     calving: eigen_calving
     ocean: pik
     meltfactor_pik: 0.01
     eigen_calving_K: [1e5, 1e10, 1e16]
-    
-    
+
+
   calvingtest:
     calving: eigen_calving,thickness_calving
     thickness_calving_threshold: [1000, 50]
     ocean: pik
     meltfactor_pik: 0.01
-    
+
   hot:
     ocean: constant
     shelf_base_melt_rate: 10000
-    
+
   constantmelt_50:
     calving: eigen_calving,thickness_calving
     thickness_calving_threshold: 200
     ocean: constant
     shelf_base_melt_rate: 50
-    
+
   thermodynamics:
     calving: eigen_calving,thickness_calving
     thickness_calving_threshold: 200
     ocean: th
     ocean_th_period: 1
-    
-    
+
+

@@ -8,6 +8,15 @@ icedynamics:
     topg_to_phi: 15,40,-300,700
     pseudo_plastic_uthreshold: 3e5
 
+  heinrich_schanwell:
+    # from schanwell but also some HEINO-NG experiments
+    # this should be used with really low values for tillphi in sliding areas
+    sia_e: 2
+    ssa_e: 1
+    pseudo_plastic_q: 0.25
+    till_effective_fraction_overburden: 0.02
+
+
   schannwell_ssa_e-study:
   # they use sia_e=1, but they do have 10km resolution
     sia_e: 3
