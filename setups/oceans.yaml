@@ -1,5 +1,19 @@
 oceans:
 
+
+  antarctica_albrecht:
+    calving: eigen_calving,thickness_calving
+    thickness_calving_threshold: 75
+    ocean: th
+    ocean_th_period: 1
+    part_grid: yes
+    cfbc: yes
+    kill_icebergs: yes
+    eigen_calving_K: 1e17
+    subgl: yes
+    # this one is for pism 2
+    ocean.th.periodic: true
+
   pik-niu:
     ocean: pik
     meltfactor_pik: 0.01

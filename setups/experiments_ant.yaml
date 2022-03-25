@@ -16,4 +16,19 @@ experiments:
     time: "{{times.50k-out100-more}}"
 
 
+  ANT_CESM_FIRST_32km:
+    automaticData: "CESM_PD_ANT_"
+    grid: "{{grids.initmip-32km}}"
+    ocean: "{{oceans.antarctica_albrecht}}"
+    pdd_sd_period: 1
+    climate: "{{climates.pdd-mprange}}"
+    icedynamic: "{{icedynamics.antarctica_albrecht}}"
+    time: "{{times.50k-out100-more}}"
+    # hrln
+    partition: standard96
+    timelimit: "12:00:00"
+    nnodes: 8
+    pism_module: pism-sbeyer@master
+
+
 
