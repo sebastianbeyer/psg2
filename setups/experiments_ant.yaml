@@ -31,4 +31,16 @@ experiments:
     pism_module: pism-sbeyer@master
 
 
+  ANT_RACMO_SMB_FIRST_16km:
+    automaticData: "RACMO_ANT"
+    grid: "{{grids.initmip-16km}}"
+    ocean: "{{oceans.antarctica_albrecht}}"
+    climate: "{{climates.smb-given}}"
+    icedynamic: "{{icedynamics.antarctica_albrecht}}"
+    time: "{{times.50k-out100-more}}"
+    # hrln
+    partition: standard96
+    timelimit: "12:00:00"
+    nnodes: 8
+    pism_module: pism-sbeyer@master
 
