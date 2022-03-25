@@ -16,9 +16,9 @@ experiments:
     time: "{{times.50k-out100-more}}"
 
 
-  ANT_CESM_FIRST_32km:
+  ANT_CESM_FIRST_16km:
     automaticData: "CESM_PD_ANT_"
-    grid: "{{grids.initmip-32km}}"
+    grid: "{{grids.initmip-16km}}"
     ocean: "{{oceans.antarctica_albrecht}}"
     pdd_sd_period: 1
     climate: "{{climates.pdd-mprange}}"
