@@ -37,7 +37,7 @@ experiments:
     ocean: "{{oceans.antarctica_albrecht}}"
     climate: "{{climates.smb-given}}"
     icedynamic: "{{icedynamics.antarctica_albrecht}}"
-    time: "{{times.50k-out100-more}}"
+    time: "{{times.50k-out100-smb}}"
     # hrln
     partition: standard96
     timelimit: "12:00:00"
