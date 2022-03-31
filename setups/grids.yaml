@@ -8,6 +8,14 @@ grids:
     Lz: 5000
     Lbz: 2000
 
+  NHEM-10km-100vert:
+    Mx: 1251
+    My: 1251
+    Mz: 101
+    Mbz: 11
+    Lz: 5000
+    Lbz: 2000
+
   NHEM-20km-100vert:
     Mx: 625
     My: 625
