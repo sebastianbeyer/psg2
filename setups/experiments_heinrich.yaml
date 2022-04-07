@@ -42,8 +42,8 @@ experiments:
     timelimit: "12:00:00"
     nnodes: 8
     pism_module: pism-sbeyer@master
-  heinrich_CESM_LGM_sediment_divide120_20km:
-    automaticData: "CESM_LGM_LaskeMasters_divide120_NHEM20km"
+  heinrich_CESM_LGM_sediment_divide125_20km:
+    automaticData: "CESM_LGM_LaskeMasters_divide125_NHEM20km"
     grid: "{{grids.NHEM-20km-100vert}}"
     ocean: "{{oceans.flo-calving-th}}"
     pdd_sd_period: 1
