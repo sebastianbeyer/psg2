@@ -1,0 +1,187 @@
+#!/usr/bin/env python3
+
+import argparse
+import matplotlib.pyplot as plt
+import cartopy.crs as ccrs
+import matplotlib.patches as mpatches
+import matplotlib.colors as colors
+import cmocean.cm as cmo
+import numpy as np
+from pylab import cm
+
+from netCDF4 import Dataset
+
+parser = argparse.ArgumentParser()
+parser.add_argument('modelfile', type=str)
+# parser.add_argument('reference',
+#                     type=str,
+#                     help='the file that has the correct ice thickness')
+args = parser.parse_args()
+
+secInMonth = 60 * 60 * 24 * 30
+
+
+def get_extend(x, y):
+    """Read extend from x and y variables and return extend to be used with cartopy"""
+    return [x[0], x[-1], y[0], y[-1]]
+
+
+# the one used in the model
+#crs = ccrs.NorthPolarStereo(-39, 71)
+# extent = (-6240000, 6240000, -6240000, 6240000)
+# crs = ccrs.SouthPolarStereo(-90, -71)
+# crs = ccrs.SouthPolarStereo(-90, -71)
+crs = ccrs.SouthPolarStereo()
+
+vminTemp = -10
+vmaxTemp = 10
+
+vminPrec = 0
+vmaxPrec = 2000
+
+# fig, axes = plt.subplots(1, 4, subplot_kw={'projection': crs}, figsize=(12, 4))
+# axThkObs = axes[0]
+# axThk = axes[1]
+# axDiff1 = axes[2]
+# axDiffPerc = axes[3]
+fig, axes = plt.subplots(2, 2, subplot_kw={'projection': crs}, figsize=(8, 8))
+axThkObs = axes[0, 0]
+axThk = axes[0, 1]
+axDiff1 = axes[1, 0]
+axDiffPerc = axes[1, 1]
+fig.suptitle(args.modelfile.split('/')[-1], fontsize=16)
+
+data = Dataset(args.modelfile, mode='r')
+x = data.variables['x'][:]
+y = data.variables['y'][:]
+thk = data.variables['thk'][:]
+mask = data.variables['mask'][:]
+# model_timebnds = data.variables['time_bounds'][:]
+#
+#
+netcdfExtend = get_extend(x, y)
+
+# # print(data.variables['air_temp'].units)
+# if data.variables['air_temp_snapshot'].units == 'Kelvin':
+#     modeltemp = modeltemp - 273
+data.close()
+
+
+# original ice thickness
+# data = Dataset(args.reference, mode='r')
+# thk_reference = data.variables['thk'][:]
+# data.close()
+#
+
+
+cmap = cm.get_cmap('GnBu', 21)  # 11 discrete colors
+cmap = cm.get_cmap('RdYlBu_r', 21)  # 11 discrete colors
+cmap = cm.get_cmap('YlGnBu', 21)  # 11 discrete colors
+
+
+def truncate_colormap(cmap, minval=0.0, maxval=1.0, n=100):
+    new_cmap = colors.LinearSegmentedColormap.from_list(
+        'trunc({n},{a:.2f},{b:.2f})'.format(n=cmap.name, a=minval, b=maxval),
+        cmap(np.linspace(minval, maxval, n)))
+    return new_cmap
+
+
+cmap = truncate_colormap(cm.get_cmap('YlGnBu'), 0, 0.8)
+
+cmap.set_under(color='white')
+
+cmap_diff = cm.get_cmap('RdBu_r', 7)  # 11 discrete colors
+
+# title = args.modelfile.split('/')[-1]
+
+thk_last = thk[-1, :, :]
+thk_first = thk[0, :, :]
+
+mask_last = mask[-1, :, :]
+mask_first = mask[0, :, :]
+# thk_first = thk_reference
+
+print("resultfile:")
+print(thk_last.shape)
+print("reference file:")
+print(thk_first.shape)
+
+thk_diff = thk_last - thk_first
+thk_diffperc = thk_diff / thk_first
+
+RMSE = np.sqrt(np.mean(thk_diff**2))
+print("RMSE:")
+print(RMSE)
+
+GRL_colors = ["red", "black"]
+GRL_levels = [2, 3]
+
+# axThkObs.coastlines(resolution='110m')
+axThkObs.set_extent(netcdfExtend, crs=crs)
+axThk.set_extent(netcdfExtend, crs=crs)
+imgThkObs = axThkObs.imshow(thk_first,
+                            transform=crs,
+                            extent=netcdfExtend,
+                            cmap=cmap,
+                            origin='lower',
+                            vmin=10,
+                            vmax=3500)
+cbThkObs = plt.colorbar(imgThkObs, ax=axThkObs, shrink=0.8)
+cbThkObs.set_label('Observed Ice Thickness (m)')
+
+# grounding line
+line_c = axThkObs.contour(x, y, mask_first,
+                          colors=GRL_colors,
+                          levels=GRL_levels,
+                          linewidths=0.7,
+                          transform=crs)
+
+# axThk.coastlines(resolution='110m')
+axThk.set_extent(netcdfExtend, crs=crs)
+# axThk.set_extent(extent, crs=crs)
+imgThk = axThk.imshow(thk_last,
+                      transform=crs,
+                      extent=netcdfExtend,
+                      cmap=cmap,
+                      origin='lower',
+                      vmin=10,
+                      vmax=3500)
+cbThk = plt.colorbar(imgThk, ax=axThk, shrink=0.8)
+cbThk.set_label('Model Ice Thickness (m)')
+
+# modelled grounding line
+line_c = axThk.contour(x, y, mask_last,
+                       colors=GRL_colors,
+                       levels=GRL_levels,
+                       linewidths=0.7,
+                       transform=crs)
+
+axDiff1.coastlines(resolution='110m')
+axDiff1.set_extent(netcdfExtend, crs=crs)
+imgDiff = axDiff1.imshow(thk_diff,
+                         transform=crs,
+                         cmap=cmap_diff,
+                         extent=netcdfExtend,
+                         origin='lower',
+                         vmin=-500,
+                         vmax=500)
+cbDiff = plt.colorbar(imgDiff, ax=axDiff1, shrink=0.8)
+cbDiff.set_label('Thickness difference (m) (model - observation)')
+
+axDiffPerc.coastlines(resolution='110m')
+axDiffPerc.set_extent(netcdfExtend, crs=crs)
+imgDiffPerc = axDiffPerc.imshow(thk_diffperc,
+                                transform=crs,
+                                extent=netcdfExtend,
+                                cmap=cmap_diff,
+                                origin='lower',
+                                vmin=-1,
+                                vmax=1)
+cbDiffPerc = plt.colorbar(imgDiffPerc, ax=axDiffPerc, shrink=0.8)
+cbDiffPerc.set_label('Thickness difference (normalized)')
+
+axDiffPerc.set_title("RMSE: {:4.0f} m".format(RMSE))
+
+# ax.gridlines()
+print(args.modelfile + "result" + ".png")
+plt.savefig(args.modelfile + "result" + ".png", dpi=300)
