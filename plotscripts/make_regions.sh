@@ -27,8 +27,8 @@ ogr2ogr -f "GMT" ${ncout}.temp.gmt ${shapefile} -t_srs "$projNHEM"
 nPolygons=$(cat ${ncout}.temp.gmt |grep -c "@P")
 echo "Found $nPolygons polygons."
 
-polyStrings=()
-polyNumbers=()
+polyStrings=( "other" )
+polyNumbers=( 0 )
 
 for i in $(seq 1 $nPolygons)
 do
