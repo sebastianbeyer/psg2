@@ -206,6 +206,8 @@ hillshade = axes.imshow(hillshade,
                         vmax=255,
                         alpha=0.3)
 
+# marker
+#axes.plot(-45, 70, transform=ccrs.PlateCarree(), marker='o', markersize=30 )
 
 # axes.contour(X, Y, icefrac_last, levels=[0.1, ],
 #              colors=('white',), linestyles=('-',), linewidths=(1.1,))
