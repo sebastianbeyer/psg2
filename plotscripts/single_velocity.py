@@ -58,8 +58,8 @@ netcdfExtend = get_extend(x, y)
 data.close()
 
 # look only at last timestep
-vel_surf = vel_surf[-1, :, :]
-vel_base = vel_base[-1, :, :]
+vel_surf = vel_surf[1, :, :]
+vel_base = vel_base[1, :, :]
 
 sliding = vel_base / vel_surf * 100
 
@@ -86,7 +86,7 @@ imgVel = axVel.imshow(
     vel_surf_scaled,
     transform=crs,
     extent=netcdfExtend,
-    cmap=cmap_GRN,
+    cmap='turbo',
     origin='lower',
 )
 cbVel = plt.colorbar(imgVel, ax=axVel, ticks=255 *
