@@ -185,12 +185,12 @@ for ncName in args.netcdf:
     # time = time+50
 
     # points to indicate phases
-    surgeindex = 202
-    surgex = time[surgeindex]
-    buildupindex = 178
-    buildupx = time[buildupindex]
-    stabindex = 206
-    stabx = time[stabindex]
+    # surgeindex = 202
+    # surgex = time[surgeindex]
+    # buildupindex = 178
+    # buildupx = time[buildupindex]
+    # stabindex = 206
+    # stabx = time[stabindex]
 
     # for ax in [ax1, ax2, ax3, ax4]:
     #     ax.axvspan(24, 31, alpha=0.2, color='black')
