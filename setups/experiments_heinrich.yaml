@@ -71,8 +71,8 @@ experiments:
     pism_module: pism-sbeyer@master
 
   ######## shape experiments ################
-  heinrich_CESM_LGM_sediment_nofinger_20km:
-    automaticData: "CESM_LGM_LaskeMasters_nofinger_NHEM20km"
+  heinrich_CESM_LGM_sediment_nohudson_20km:
+    automaticData: "CESM_LGM_LaskeMasters_nohudson_NHEM20km"
     grid: "{{grids.NHEM-20km-100vert}}"
     ocean: "{{oceans.flo-calving-th}}"
     pdd_sd_period: 1
