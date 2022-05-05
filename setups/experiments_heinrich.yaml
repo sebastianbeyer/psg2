@@ -71,6 +71,19 @@ experiments:
     pism_module: pism-sbeyer@master
 
   ######## shape experiments ################
+  heinrich_CESM_LGM_sediment_nofinger_20km:
+    automaticData: "CESM_LGM_LaskeMasters_nofinger_NHEM20km"
+    grid: "{{grids.NHEM-20km-100vert}}"
+    ocean: "{{oceans.flo-calving-th}}"
+    pdd_sd_period: 1
+    climate: "{{climates.pdd-mprange}}"
+    icedynamic: "{{icedynamics.heinrich_schannwell}}"
+    time: "{{times.50k-out100-more}}"
+    # hrln
+    partition: standard96
+    timelimit: "12:00:00"
+    nnodes: 8
+    pism_module: pism-sbeyer@master
   heinrich_CESM_LGM_sediment_smooth_20km:
     automaticData: "CESM_LGM_LaskeMasters_smooth_NHEM20km"
     grid: "{{grids.NHEM-20km-100vert}}"
